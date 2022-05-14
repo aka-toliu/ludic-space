@@ -4,7 +4,11 @@ module.exports = function(grunt) {
         browserSync: {
             public: {
                 bsFiles: {
-                    src: ['src/**/*', './'],
+                    src: [
+                      'src/**/*', 
+                      './'
+                    ],
+
                    
                 },
                 options: {
@@ -24,22 +28,35 @@ module.exports = function(grunt) {
 
           },
 
-          styles: {
+          mainStyles: {
 
               src: ['scss/*.scss'],
               dest: 'src/main.scss'
           },
+
+          componentsStyles: {
+
+            src: ['components/**/*.scss'],
+            dest: 'src/components.scss'
+        },
+
           scripts: {
 
             src: ['js/*.js'],
             dest: 'src/main.js'
-        }
+        },
+
+        componentsScripts: {
+
+          src: ['components/**/*.js'],
+          dest: 'src/components.js'
+      }
 
       },
 
         watch: {
             scripts: {
-              files: ['js/*.js', 'scss/*.scss', 'index.html'],
+              files: ['js/*.js', 'scss/*.scss', 'index.html', 'components/**/*.*',],
               tasks: ['concat', 'sass'],
               options: {
                 spawn: false,
@@ -50,7 +67,8 @@ module.exports = function(grunt) {
         sass: {
           dist: {
             files: {
-              'src/main.css': 'src/main.scss'
+              'src/main.css': 'src/main.scss',
+              'src/components.css': 'src/components.scss'
             }
           }
         }
