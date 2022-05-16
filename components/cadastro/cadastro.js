@@ -19,14 +19,14 @@ function nextStep() {
 
     if (step === 0) {
         astro.classList.add('step-1');
-        
+        astroBody.src = "../../assets/astro-body-" + graduation + "-front.svg";
         
         step = step + 1;
 
         setTimeout(() => {
             helmet.classList.add('helmet-out');
             aluno.classList.remove('silhouette');
-            astroBody.src = "../../assets/astro-body-" + graduation + "-front.svg";
+            
         }, 1000);
 
         sections[0].classList.remove('show-block');

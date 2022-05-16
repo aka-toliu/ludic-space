@@ -8,10 +8,14 @@ function openCadastro() {
   form.classList.add('hide-fade-out');
   login.classList.add('login-transition');
 
+  console.log(cadastro);
 
-  $.get('components/cadastro/cadastro.html', function (response) {
-    $('.cadastro').html(response);
-  });
+
+setTimeout(() => {
+  cadastro.classList.add('cadastro-transition');
+}, 200);
+
+
 
 
   initCadastro();

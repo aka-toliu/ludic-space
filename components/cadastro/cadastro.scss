@@ -15,8 +15,12 @@
     height: 100%;
     position: absolute;
     left: 110%;
-    animation: cadastroTransition 6s ease-in-out both;
+    
     // animation-delay: 0.2s;
+
+    &-transition{
+        animation: cadastroTransition 5s ease-in-out both;
+    }
 
     &-form{
 
@@ -63,7 +67,7 @@
 
     &-images{
 
-        border: 1px solid green;
+        // border: 1px solid green;
         height: 100%;
         width: 30%;
         position: absolute;
@@ -82,7 +86,7 @@
             position: absolute;
             margin-left: 200%;
             animation: rightToCenter 4s both;
-            animation-delay: 4s;
+            animation-delay: 3.5s;
             transition: opacity 0.4s;
             opacity: 0.2;
             display: flex;

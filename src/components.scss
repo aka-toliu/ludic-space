@@ -676,8 +676,12 @@
     height: 100%;
     position: absolute;
     left: 110%;
-    animation: cadastroTransition 6s ease-in-out both;
+    
     // animation-delay: 0.2s;
+
+    &-transition{
+        animation: cadastroTransition 5s ease-in-out both;
+    }
 
     &-form{
 
@@ -724,7 +728,7 @@
 
     &-images{
 
-        border: 1px solid green;
+        // border: 1px solid green;
         height: 100%;
         width: 30%;
         position: absolute;
@@ -743,7 +747,7 @@
             position: absolute;
             margin-left: 200%;
             animation: rightToCenter 4s both;
-            animation-delay: 4s;
+            animation-delay: 3.5s;
             transition: opacity 0.4s;
             opacity: 0.2;
             display: flex;
@@ -1313,18 +1317,14 @@
 }
 
  
-.login{
-
+.login {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     position: absolute;
-    
-    
 
-    &-svg{
-
+    &-svg {
         // border: 1px solid red;
         height: 100%;
         width: 85%;
@@ -1332,11 +1332,10 @@
         display: flex;
         align-items: center;
 
-        img{
+        img {
             height: 60vw;
             position: absolute;
             left: 0px;
-
 
             // @media screen and (max-width: 1240px) {
             //     left: -430px;
@@ -1350,7 +1349,7 @@
         }
     }
 
-    &-form{
+    &-form {
         // height: 65vh;
         // width: 17vw;
         min-width: 17vw;
@@ -1362,85 +1361,70 @@
         justify-content: center;
         flex-direction: column;
         font-weight: bold;
+        background-color: white;
+        padding: 2%;
+        border-radius: 20px;
 
-
-
-
-
-        button{
+        button {
             width: 130px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .btn-lite{
+        .btn-lite {
             margin-top: 20px;
         }
 
-        hr{
+        hr {
             margin: 20px 0px 20px 0px;
             border-top: 1px solid var(--ls-bg-strong);
             display: flex;
             align-items: center;
             justify-content: center;
 
-            &::after{
+            &::after {
                 content: "OU";
                 font-size: 1em;
                 position: absolute;
                 background-color: white;
-               padding: 0px 5px 0px 5px;
-               color: var(--ls-bg-strong);
-
+                padding: 0px 5px 0px 5px;
+                color: var(--ls-bg-strong);
             }
         }
 
-
-        img{
+        img {
             width: 60%;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 20px;
         }
-    
-        
     }
-
-
-
 }
 
-.login-transition{
+.login-transition {
     animation: loginTransition 4s ease-in both;
 
-
-    .login-svg{
+    .login-svg {
         animation: loginSVGTransition 4s ease-in both;
     }
 }
 
-
-@keyframes loginTransition{
-
-    0%{
+@keyframes loginTransition {
+    0% {
         right: 0%;
     }
 
-    100%{
-        right: 200%;
+    100% {
+        right: 180%;
     }
 }
 
-
-@keyframes loginSVGTransition{
-
-    0%{
+@keyframes loginSVGTransition {
+    0% {
         transform: scale(1);
-        
     }
 
-    100%{
+    100% {
         transform: scale(2.5);
     }
-
 }

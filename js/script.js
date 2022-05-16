@@ -15,6 +15,9 @@ function ajax() {
     //   $('.cadastro').html(response);
     // });
 
+    $.get('components/cadastro/cadastro.html', function (response) {
+      $('.cadastro').html(response);
+    });
     
 }
 
