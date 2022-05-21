@@ -58,8 +58,8 @@
 
 // -------- [BACKGROUNDS] ------------------------    
     --ls-bg-strong: #732E82;
-    --ls-bg-lite: #732E82;
-
+    --ls-bg-lite: #865192;
+    --ls-bg-weak: #C4C4C4;
 
 // -------- [BUTTONS] ------------------------
     --ls-btn-strong: #732E82;
@@ -199,7 +199,220 @@ html{
 
 
  
+.avatar {
+    &__head {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
 
+        &-front {
+            width: 80%;
+            height: 80%;
+            border-radius: 80px 80px 60px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            background-color: var(--ls-bg-weak);
+            z-index: 1;
+            bottom: 6%;
+
+            &::before {
+                content: "";
+                height: 20%;
+                width: 25%;
+                position: absolute;
+                bottom: -15%;
+                background-color: var(--ls-bg-weak);
+            }
+
+            &::after {
+                content: "";
+                height: 15%;
+                width: 40%;
+                position: absolute;
+                bottom: -22%;
+                background-color: var(--ls-bg-weak);
+                border-radius: 0 0 25px 25px;
+            }
+
+            .avatar__eyes {
+                width: 75%;
+                height: 30%;
+                // border: 1px solid orange;
+                position: absolute;
+                margin-top: 5%;
+
+                @mixin iris {
+                    &::before {
+                        content: "";
+                        width: 70%;
+                        height: 90%;
+                        border-radius: 100%;
+                        position: absolute;
+                        background-color: var(--ls-bg-lite);
+                        // top: 0;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 30%;
+                        height: 40%;
+                        border-radius: 100%;
+                        position: absolute;
+                        background-color: rgba(0, 0, 0, 0.151);
+                        // top: 0;
+                    }
+                }
+
+                &-L {
+                    width: 40%;
+                    height: 100%;
+                    background-color: white;
+                    position: absolute;
+                    left: 0%;
+                    // border-radius: 20% 50% 40% 50%;
+                    border-radius: 40% 50% 10% 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    @include iris;
+                }
+
+                &-R {
+                    width: 40%;
+                    height: 100%;
+                    background-color: white;
+                    position: absolute;
+                    right: 0%;
+                    // border-radius: 50% 20% 50% 40%;
+                    border-radius: 50% 40% 50% 10%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    @include iris;
+                }
+            }
+        }
+
+        &-back {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            z-index: 0;
+            border: 1px dashed blueviolet;
+
+            .avatar__ears {
+                width: 100%;
+                height: 20%;
+                background-color: var(--ls-bg-weak);
+                position: absolute;
+                border-radius: 50px;
+                bottom: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &::after {
+                    content: "";
+                    height: 58%;
+                    width: 90%;
+                    background-color: rgba(0, 0, 0, 0.438);
+                    position: absolute;
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+}
+
+ 
+.cadastro{
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+
+
+
+
+    &__svg{
+        height: 100%;
+        width: 30%;
+        border: 1px solid rgb(85, 255, 170);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        @media (max-width: 767px) {
+            width: 100%;
+            height: 30%;
+        }
+
+        @media (max-width: 1080px) and (min-width: 768px){
+            width: 40%;
+            height: 100%;
+        }
+
+
+        picture{
+            border: 1px solid rgb(94, 255, 0);
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            
+
+            header{
+                width: 12vw;
+                height: 12vw;
+                border: 1px solid yellow;
+            }
+            footer{
+                width: 25vw;
+                height: 25vw;
+                border: 1px solid yellow;
+
+            }
+        }
+    }
+
+    &__form{
+        height: 100%;
+        width: 70%;
+        border: 1px solid red;
+        background-color: white;
+        z-index: 1;
+
+        @media (max-width: 767px) {
+            width: 100%;
+            height: 70%;
+        }
+
+        @media (max-width: 1080px) and (min-width: 768px){
+            width: 60%;
+            height: 100%;
+        }
+
+    }
+
+
+}
  
 .login{
     background-color: var(--ls-bg-strong);
