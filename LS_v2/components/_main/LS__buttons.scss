@@ -1,0 +1,29 @@
+@mixin btn ($color) {
+    min-height: 40px;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 2px;
+    font-weight: bold;
+    padding: 0px 15px 0px 15px;
+
+    @if $color == strong{
+        background-color: var(--ls-btn-strong);
+    }
+
+    @if $color == lite{
+        background-color: var(--ls-btn-lite);
+    }
+
+    @if $color == weak{
+        background-color: var(--ls-btn-weak);
+    }
+}
+
+.btn-strong{ @include btn(strong); }
+
+.btn-lite{ @include btn(lite); }
+
+.btn-weak{ @include btn(weak); }

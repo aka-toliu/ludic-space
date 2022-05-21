@@ -1,0 +1,374 @@
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+       
+    }
+    100%{
+        opacity: 1;
+        
+    }
+
+}
+
+ 
+@mixin btn ($color) {
+    min-height: 40px;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 2px;
+    font-weight: bold;
+    padding: 0px 15px 0px 15px;
+
+    @if $color == strong{
+        background-color: var(--ls-btn-strong);
+    }
+
+    @if $color == lite{
+        background-color: var(--ls-btn-lite);
+    }
+
+    @if $color == weak{
+        background-color: var(--ls-btn-weak);
+    }
+}
+
+.btn-strong{ @include btn(strong); }
+
+.btn-lite{ @include btn(lite); }
+
+.btn-weak{ @include btn(weak); }
+ 
+:root{
+
+// -------- [BACKGROUNDS] ------------------------    
+    --ls-bg-strong: #732E82;
+    --ls-bg-lite: #732E82;
+
+
+// -------- [BUTTONS] ------------------------
+    --ls-btn-strong: #732E82;
+    --ls-btn-strong-blur: #AB6CA2;
+    --ls-btn-lite: #D6559A;
+    --ls-btn-complete: #6EBD90;
+    --ls-btn-weak: #C4C4C4;
+
+
+// --------- [AVATAR] -------
+
+// ------- Pele 👤 --------
+    --P1: #E5C0B4;
+    --P2: #d4a292;
+    --P3: #b68575;
+    --P4: #7c5345;
+    --P5: #472a21;
+
+    --P1-dark: #e39c9c;
+    --P2-dark: #c48a77;
+    --P3-dark: #925e4c;
+    --P4-dark: #5f3a2e;
+    --P5-dark: #331c15;
+
+ // ------- Cabelo 💇‍♀️ --------   
+
+    --C1: #272220;
+    --C2: #482314;
+    --C3: #d33f3f;
+    --C4: #e7b240;
+    --C5: #59b347;
+    --C6: #4baed4;
+    --C7: #eb58ae;
+    
+// ----- Olhos 👀 -------
+
+    --O1: #272220;
+    --O2: #3f251a;
+    --O3: #12487a;
+    --O4: #22441f;
+    --O5: #7a445f;
+
+
+
+
+
+
+ --smartphone: "max-width: 600px";
+
+
+
+
+}
+ 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+
+
+
+main{
+    width: 100%;
+    height: 100%;
+    background-color: var(--ls-bg-strong);
+    
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.show-flex{
+    display: flex!important;
+}
+
+.show-block{
+    display: block!important;
+}
+
+
+.visible{
+    visibility: visible!important;
+}
+
+.hide-fade-out{
+    animation: fadeOut 0.6s both;
+}
+
+.opacity-show{
+    opacity: 1!important;
+    
+}
+
+ 
+
+input{
+    min-height: 35px;
+    padding-left: 10px;
+    border: 2px solid var(--ls-btn-weak);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+select{
+    height: 35px;
+    border: 2px solid var(--ls-btn-weak);
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    option{
+        height: 35px;
+        border: 2px solid var(--ls-btn-weak);
+
+    }
+}
+
+label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+ 
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+ 
+
+ 
+.login{
+    background-color: var(--ls-bg-strong);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+
+    &__form{
+
+        background-color: white;
+        height: 100%;
+        width: 30%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        @media (max-width: 767px) {
+            height: 60%;
+            width: 100%;
+            bottom: 0;
+            border-radius: 100px 100px 0 0;
+        }
+
+        @media (max-width: 1080px) and (min-width: 768px){
+            height: 100%;
+            width: 50%;
+        }
+
+
+        form{
+            height: 65vh;
+            width: 80%;
+            position: absolute;
+            z-index: 1;
+            margin-left: 5vw;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: bold;
+            padding: 2%;
+
+            @media (max-width: 767px) {
+                height: 40vh;
+                width: 80%;
+            }
+
+    
+            button {
+                width: 130px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .btn-lite {
+                margin-top: 20px;
+            }
+    
+            hr {
+                margin: 20px 0px 20px 0px;
+                border-top: 1px solid var(--ls-bg-strong);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                &::after {
+                    content: "OU";
+                    font-size: 1em;
+                    position: absolute;
+                    background-color: white;
+                    padding: 0px 5px 0px 5px;
+                    color: var(--ls-bg-strong);
+                }
+            }
+    
+            img {
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 25px;
+            }
+        }
+        
+
+    }
+
+
+    &__svg{
+
+        
+        height: 100%;
+        width: 70%;
+        position: absolute;
+        left: 30%;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 767px) {
+            height: 40%;
+            width: 100%;
+            bottom: 60%;
+            left: 0;
+        }
+
+        @media (max-width: 1080px) and (min-width: 768px){
+            height: 100%;
+            width: 50%;
+            left: 50%;
+        }
+
+
+
+        &-ship{
+            width: 30%;
+            height: auto;
+            position: absolute;
+            right: 0;
+
+            @media (max-width: 767px) {
+                height: 30%;
+                width: 100%;
+                top: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            img{
+                margin-left: -50px;
+                width: 90%;
+
+                @media (max-width: 767px) {
+                    height: 100%;
+                    width: 50%;
+                    transform: rotate(270deg);
+                    margin-top: 70px;
+                    margin-left: inherit;
+
+                }
+            }
+        }
+
+        &-smoke{
+            width: 70%;
+            height: auto;
+            // border: 1px solid red;
+            position: absolute;
+            left: 0;
+
+            @media (max-width: 767px) {
+                height: 70%;
+                width: 100%;
+                bottom: 0;
+            }
+
+            img{
+                z-index: 0;
+                margin-left: -2px;
+
+                @media (max-width: 767px) {
+                    // height: 100%;
+                    transform: rotate(270deg);
+                    margin-bottom: 0px;
+                   
+                    
+                }
+            }
+        }
+    }
+}
+
