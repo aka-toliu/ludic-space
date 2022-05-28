@@ -1,11 +1,18 @@
-.avatar {
-    &__head {
+.avatar__head[silhuette="true"]{
+    filter: brightness(0);
+}
+
+
+
+.avatar__head {
+    
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
+        // z-index: 1;
 
         &-front {
             width: 80%;
@@ -17,9 +24,10 @@
             position: absolute;
             background-color: var(--ls-bg-weak);
             z-index: 1;
-            bottom: 6%;
+            bottom: 9%;
+            // box-shadow: inset #ffffff2e -17px 4px 0 0;
 
-            &::before {
+            &::after {
                 content: "";
                 height: 20%;
                 width: 25%;
@@ -28,7 +36,7 @@
                 background-color: var(--ls-bg-weak);
             }
 
-            &::after {
+            &::before {
                 content: "";
                 height: 15%;
                 width: 40%;
@@ -44,6 +52,8 @@
                 // border: 1px solid orange;
                 position: absolute;
                 margin-top: 5%;
+                display: flex;
+                align-items: center;
 
                 @mixin iris {
                     &::before {
@@ -97,8 +107,65 @@
                     @include iris;
                 }
             }
-        }
 
+            .avatar__nose {
+                width: 15%;
+                height: 18%;
+                position: absolute;
+                bottom: 22%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 50%;
+                    background-color: rgba(78, 8, 8, 0.363);
+                    border-radius: 50px;
+                    position: absolute;
+                }
+            }
+
+            .avatar__mouth {
+                width: 25%;
+                height: 12%;
+                position: absolute;
+                // border: 1px solid red;
+                bottom: 7%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &::after {
+                    content: "";
+                    width: 90%;
+                    height: 45%;
+                    box-sizing: border-box;
+                    border-bottom: 3px solid black;
+                    border-right: 3px solid black;
+                    border-left: 3px solid black;
+                    position: absolute;
+                    border-radius: 0 0 20px 20px;
+
+                    @media (max-width: 767px) {
+                        border-bottom: 1px solid black;
+                        border-right: 1px solid black;
+                        border-left: 1px solid black;
+                    }
+                }
+            }
+
+            .avatar__hair {
+                width: 100%;
+                height: 90%;
+                position: absolute;
+                top: -20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        // -------------------------------------------------------------------------------------
         &-back {
             width: 100%;
             height: 100%;
@@ -107,7 +174,7 @@
             justify-content: center;
             position: absolute;
             z-index: 0;
-            border: 1px dashed blueviolet;
+            // border: 1px dashed blueviolet;
 
             .avatar__ears {
                 width: 100%;
@@ -115,7 +182,7 @@
                 background-color: var(--ls-bg-weak);
                 position: absolute;
                 border-radius: 50px;
-                bottom: 25%;
+                bottom: 26%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -124,11 +191,834 @@
                     content: "";
                     height: 58%;
                     width: 90%;
-                    background-color: rgba(0, 0, 0, 0.438);
+                    background-color: rgba(65, 10, 10, 0.438);
                     position: absolute;
                     border-radius: 50px;
                 }
             }
         }
+}
+
+// -------------- Skin Colors ----------------------
+.avatar[skin-color="s1"] {
+    .avatar__head-front {
+        background-color: var(--s1);
+        &::after {
+            background-color: var(--s1);
+        }
+        &::before {
+            background-color: var(--s1);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s1);
     }
 }
+
+.avatar[skin-color="s1"] {
+    .avatar__head-front {
+        background-color: var(--s1);
+        &::after {
+            background-color: var(--s1);
+        }
+        &::before {
+            background-color: var(--s1);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s1);
+    }
+}
+
+.avatar[skin-color="s2"] {
+    .avatar__head-front {
+        background-color: var(--s2);
+        &::after {
+            background-color: var(--s2);
+        }
+        &::before {
+            background-color: var(--s2);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s2);
+    }
+}
+
+.avatar[skin-color="s3"] {
+    .avatar__head-front {
+        background-color: var(--s3);
+        &::after {
+            background-color: var(--s3);
+        }
+        &::before {
+            background-color: var(--s3);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s3);
+    }
+}
+
+.avatar[skin-color="s4"] {
+    .avatar__head-front {
+        background-color: var(--s4);
+        &::after {
+            background-color: var(--s4);
+        }
+        &::before {
+            background-color: var(--s4);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s4);
+    }
+}
+
+.avatar[skin-color="s5"] {
+    .avatar__head-front {
+        background-color: var(--s5);
+        &::after {
+            background-color: var(--s5);
+        }
+        &::before {
+            background-color: var(--s5);
+        }
+    }
+
+    .avatar__ears {
+        background-color: var(--s5);
+    }
+}
+
+// -------------- Eyes styles ----------------------
+
+.avatar__eyes[eyes-style="E1"] {
+    .avatar__eyes {
+        &-R {
+            border-radius: 50% 20% 50% 40%;
+        }
+        &-L {
+            border-radius: 20% 50% 40% 50%;
+        }
+    }
+}
+
+.avatar__eyes[eyes-style="E2"] {
+    .avatar__eyes {
+        &-R {
+            border-radius: 50% 50% 15% 15%;
+            height: 70%;
+
+            &::before {
+                width: 60%;
+                height: 100%;
+            }
+        }
+        &-L {
+            border-radius: 50% 50% 15% 15%;
+            height: 70%;
+
+            &::before {
+                width: 60%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.avatar__eyes[eyes-style="E3"] {
+    .avatar__eyes {
+        &-R {
+            border-radius: 50% 0% 50% 0%;
+            border-top: 6px solid black;
+            border-right: 4px solid black;
+            height: 90%;
+            width: 40%;
+
+            @media (max-width: 767px) {
+                border-top: 3px solid black;
+                border-right: 2px solid black;
+            }
+
+            &::before {
+                height: 100%;
+            }
+        }
+        &-L {
+            border-radius: 0% 50% 0% 50%;
+            border-top: 6px solid black;
+            border-left: 4px solid black;
+            height: 90%;
+            width: 40%;
+
+            @media (max-width: 767px) {
+                border-top: 3px solid black;
+                border-left: 2px solid black;
+            }
+
+            &::before {
+                height: 100%;
+            }
+        }
+    }
+}
+
+// -------------- Eyes Colors ----------------------
+
+.avatar__eyes[eyes-color="c1"] {
+    .avatar__eyes-R,
+    .avatar__eyes-L {
+        &::before {
+            background-color: var(--O1);
+        }
+    }
+}
+
+.avatar__eyes[eyes-color="c2"] {
+    .avatar__eyes-R,
+    .avatar__eyes-L {
+        &::before {
+            background-color: var(--O2);
+        }
+    }
+}
+
+.avatar__eyes[eyes-color="c3"] {
+    .avatar__eyes-R,
+    .avatar__eyes-L {
+        &::before {
+            background-color: var(--O3);
+        }
+    }
+}
+
+.avatar__eyes[eyes-color="c4"] {
+    .avatar__eyes-R,
+    .avatar__eyes-L {
+        &::before {
+            background-color: var(--O4);
+        }
+    }
+}
+
+.avatar__eyes[eyes-color="c5"] {
+    .avatar__eyes-R,
+    .avatar__eyes-L {
+        &::before {
+            background-color: var(--O5);
+        }
+    }
+}
+
+// --------------- Nose Styles ------------------
+.avatar__nose[nose-style="N1"] {
+    &::after {
+        content: "";
+        width: 80%;
+        height: 100%;
+        border-radius: 50px;
+        position: absolute;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+}
+
+.avatar__nose[nose-style="N2"] {
+    &::after {
+        content: "";
+        width: 80%;
+        height: 70%;
+        position: absolute;
+        border-radius: 30%;
+    }
+}
+
+// --------------- Mouth Styles ------------------
+.avatar__mouth[mouth-style="M1"] {
+    &::after {
+        content: "";
+        width: 70%;
+        height: 55%;
+        position: absolute;
+        border-radius: 0 0 20px 20px;
+        background-color: white;
+        border: none;
+    }
+}
+
+.avatar__mouth[mouth-style="M2"] {
+    &::after {
+        content: "";
+        width: 30%;
+        height: 90%;
+        position: absolute;
+        border-radius: 50px;
+        background-color: white;
+        border: none;
+        bottom: 0;
+    }
+}
+
+// ---------------- Hair --------------------------
+.avatar__head {
+    .avatar__head-front {
+        // ------------- Hair front styles -------------------
+        .avatar__hair[hair-style="H1"] {
+            &::after {
+                content: "";
+                width: 95%;
+                height: 63%;
+                position: absolute;
+                border-radius: 120px 0 150px 0;
+                left: 1%;
+                top: 0;
+            }
+            &::before {
+                content: "";
+                width: 30%;
+                height: 45%;
+                position: absolute;
+                border-radius: 0px 30px 0px 30px;
+                right: 0;
+                top: 20%;
+                filter: brightness(1.5);
+            }
+        }
+
+        .avatar__hair[hair-style="H2"] {
+            &::before {
+                content: "";
+                width: 85%;
+                height: 30%;
+                background-color: white !important;
+                border-radius: 150px;
+                top: 7%;
+                position: absolute;
+            }
+            &::after {
+                content: "";
+                width: 110%;
+                height: 65%;
+                background-color: var(--H1);
+                position: absolute;
+                top: -0%;
+                border-radius: 150px 150px 0 0;
+                z-index: 1;
+                clip-path: polygon(
+                    0% 0%,
+                    100% 0%,
+                    100% 100%,
+                    76% 100%,
+                    68% 56%,
+                    72% 100%,
+                    37% 100%,
+                    39% 66%,
+                    34% 100%,
+                    1% 100%
+                );
+            }
+        }
+    }
+    // ------------- Hair back styles -------------------
+    .avatar__head-back {
+        .avatar__hair[hair-style="H2"] {
+            &::after {
+                content: "";
+                width: 55%;
+                height: 45%;
+                background-color: var(--H1);
+                position: absolute;
+                top: -2%;
+                right: -30%;
+                transform: rotate(360deg);
+                clip-path: polygon(
+                    0% 30%,
+                    3% 21%,
+                    8% 14%,
+                    13% 10%,
+                    21% 3%,
+                    32% 1%,
+                    42% 1%,
+                    53% 4%,
+                    60% 9%,
+                    67% 17%,
+                    73% 24%,
+                    78% 35%,
+                    79% 48%,
+                    78% 68%,
+                    77% 81%,
+                    78% 90%,
+                    83% 96%,
+                    91% 100%,
+                    74% 99%,
+                    63% 95%,
+                    54% 90%,
+                    47% 83%,
+                    40% 73%,
+                    35% 63%,
+                    31% 53%,
+                    29% 44%,
+                    25% 34%,
+                    19% 28%,
+                    14% 28%,
+                    10% 31%,
+                    8% 36%,
+                    0% 37%
+                );
+            }
+
+            &::before {
+                content: "";
+                width: 55%;
+                height: 45%;
+                background-color: var(--H1);
+                position: absolute;
+                top: -2%;
+                left: -30%;
+                transform: rotate(360deg) scaleX(-1);
+                clip-path: polygon(
+                    0% 30%,
+                    3% 21%,
+                    8% 14%,
+                    13% 10%,
+                    21% 3%,
+                    32% 1%,
+                    42% 1%,
+                    53% 4%,
+                    60% 9%,
+                    67% 17%,
+                    73% 24%,
+                    78% 35%,
+                    79% 48%,
+                    78% 68%,
+                    77% 81%,
+                    78% 90%,
+                    83% 96%,
+                    91% 100%,
+                    74% 99%,
+                    63% 95%,
+                    54% 90%,
+                    47% 83%,
+                    40% 73%,
+                    35% 63%,
+                    31% 53%,
+                    29% 44%,
+                    25% 34%,
+                    19% 28%,
+                    14% 28%,
+                    10% 31%,
+                    8% 36%,
+                    0% 37%
+                );
+            }
+        }
+    }
+
+    // ------------- Hair colors -------------------
+    .avatar__head-back,
+    .avatar__head-front {
+        .avatar__hair[hair-color="c1"] {
+            &::after {
+                background-color: var(--H1);
+            }
+            &::before {
+                background-color: var(--H1);
+            }
+        }
+
+        .avatar__hair[hair-color="c2"] {
+            &::after {
+                background-color: var(--H2);
+            }
+            &::before {
+                background-color: var(--H2);
+            }
+        }
+
+        .avatar__hair[hair-color="c3"] {
+            &::after {
+                background-color: var(--H3);
+            }
+            &::before {
+                background-color: var(--H3);
+            }
+        }
+
+        .avatar__hair[hair-color="c4"] {
+            &::after {
+                background-color: var(--H4);
+            }
+            &::before {
+                background-color: var(--H4);
+            }
+        }
+
+        .avatar__hair[hair-color="c5"] {
+            &::after {
+                background-color: var(--H5);
+            }
+            &::before {
+                background-color: var(--H5);
+            }
+        }
+    }
+}
+
+@mixin flexAlignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar__body {
+    display: flex;
+    justify-content: center;
+
+    .body__main {
+        width: 40%;
+        height: 40%;
+        // border: 1px solid red;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+
+        .avatar__helmet{
+            width: 157%;
+            height: 110%;
+            background-color: var(--suit-strong);
+            opacity: 0.6;
+            border: 5px solid white;
+            position: absolute;
+            border-radius: 200px;
+            z-index: 1;
+            top: -106%;
+
+            @media (max-width: 767px) {
+                border: 2px solid white;
+            }
+
+            &::after{
+                content: '';
+                width: 60%;
+                height: 60%;
+                border-radius: 100px;
+                background-color: var(--suit-strong);
+                position: absolute;
+                top: 7%;
+                right: 7%;
+                filter: brightness(1.05);
+            }
+        }
+
+        .avatar__suit {
+            width: 80%;
+            height: 100%;
+            background-color: var(--suit-lite);
+            position: absolute;
+            border-radius: 50px 50px 100px 100px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::after{
+                content: '';
+                width: 90%;
+                height: 5%;
+                background-color: var(--suit-strong);
+                position: absolute;
+                top: -2.5%;
+                border-radius: 20px;
+            }
+
+            &-detail{
+                width: 100%;
+                height: 15%;
+                background-color: var(--suit-lite);
+                filter: brightness(0.9);
+                @include flexAlignCenter();
+
+                &::after{
+                    content: '';
+                    width: 30%;
+                    height: 90%;
+                    background-color: var(--suit-lite);
+                    position: absolute;
+                    border-radius: 10px;
+                    border: 8px solid var(--suit-strong);
+
+                    @media (max-width: 767px) {
+                        border: 4px solid var(--suit-strong);
+                        border-radius: 3px;
+                    }
+                    
+                }
+            }
+        }
+
+        .avatar__arm {
+            @mixin arm {
+                width: 70%;
+                height: 20%;
+                background-color: var(--suit-lite);
+                position: absolute;
+                border-radius: 150px;
+            }
+
+            &-R {
+                @include arm;
+                right: -30%;
+                transform-origin: 20% center;
+            }
+
+            &-L {
+                @include arm;
+                left: -30%;
+                transform-origin: 80% center;
+            }
+        }
+
+        .avatar__forearm {
+            @mixin forearm {
+                width: 100%;
+                height: 100%;
+                background-color: var(--suit-lite);
+                position: absolute;
+                border-radius: 150px;
+            }
+
+            &-R {
+                @include forearm;
+                right: -60%;
+                transform-origin: 20% center;
+            }
+
+            &-L {
+                @include forearm;
+                left: -60%;
+                transform-origin: 80% center;
+            }
+        }
+
+        .avatar__hand {
+
+            @mixin finger($side) {
+                width: 70%;
+                height: 25%;
+                background-color: var(--suit-strong);
+                position: absolute;
+                #{$side}: -45%;
+                border-radius: 30px;
+            }
+            
+            @mixin hand {
+                width: 50%;
+                height: 100%;
+                background-color: var(--suit-strong);
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+            }
+
+            &-R {
+                @include hand;
+                right: -10%;
+                transform-origin: 20% center;
+                border-radius: 0 30% 30% 0;
+
+                i{
+                    &:nth-child(1){
+                        @include finger(right);
+                        top: 0;
+                    }
+                    &:nth-child(2){
+                        @include finger(right);
+                    }
+                    &:nth-child(3){
+                        @include finger(right);
+                        bottom: 0;
+                    }
+                    &:nth-child(4){
+                        @include finger(right);
+                        top: -5%;
+                        left: 45%;
+                        height: 40%;
+                        width: 65%;
+                        border-radius: 20px;
+                        transform-origin: left center;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            &-L {
+                @include hand;
+                left: -10%;
+                transform-origin: 80% center;
+                border-radius: 30% 0 0 30%;
+
+                i{
+                    &:nth-child(1){
+                        @include finger(left);
+                        top: 0;
+                    }
+                    &:nth-child(2){
+                         @include finger(left);
+                    }
+                    &:nth-child(3){
+                         @include finger(left);
+                         bottom: 0;
+                    }
+                    &:nth-child(4){
+                        
+                         @include finger(left);
+                         margin-left: auto;
+                         top: -5%;
+                         right: 45%;
+                         height: 40%;
+                         width: 65%;
+                         border-radius: 20px;
+                         transform-origin: right center;
+                         transform: rotate(45deg);
+
+                    }
+                }
+            }
+        }
+
+        .avatar__leg {
+            @mixin leg {
+                width: 30%;
+                height: 70%;
+                background-color: var(--suit-lite);
+                position: absolute;
+                border-radius: 150px;
+                bottom: -30%;
+                transform-origin: center 15%;
+            }
+
+            &-R {
+                @include leg;
+                right: 10%;
+            }
+
+            &-L {
+                @include leg;
+                left: 10%;
+            }
+        }
+
+        .avatar__tibia {
+            @mixin tibia {
+                width: 100%;
+                height: 100%;
+                background-color: var(--suit-lite);
+                position: absolute;
+                border-radius: 150px;
+                bottom: -70%;
+                transform-origin: center 15%;
+            }
+
+            &-R {
+                @include tibia;
+            }
+
+            &-L {
+                @include tibia;
+            }
+        }
+
+        .avatar__feet {
+            @mixin feet {
+                width: 100%;
+                height: 40%;
+                background-color: var(--suit-strong);
+                position: absolute;
+                transform-origin: 20% center;
+                bottom: -2%;
+
+                &::after {
+                    content: "";
+                    width: 90%;
+                    height: 30%;
+                    position: absolute;
+                    bottom: 0;
+                    background-color: var(--suit-strong);
+                }
+            }
+
+            &-R {
+                @include feet;
+
+                &::after {
+                    right: -40%;
+                    border-radius: 0 100px 0 0;
+                }
+            }
+
+            &-L {
+                @include feet;
+
+                &::after {
+                    right: -40%;
+                    border-radius: 0 100px 0 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+.avatar[pose="floating"]{
+
+    .avatar__arm{
+
+        &-R{
+            transform: rotate(40deg);
+        }
+        &-L{
+            transform: rotate(-10deg);
+        }
+    }
+
+    .avatar__forearm{
+
+        &-R{
+            transform: rotate(-60deg);
+        }
+        &-L{
+            transform: rotate(40deg);
+        }
+    }
+
+    .avatar__leg{
+
+        &-R{
+            transform: rotate(-25deg);
+        }
+        &-L{
+            transform: rotate(-5deg);
+        }
+    }
+
+    .avatar__tibia{
+
+        &-R{
+            transform: rotate(20deg);
+        }
+        &-L{
+            transform: rotate(25deg);
+        }
+    }
+
+
+}
+
