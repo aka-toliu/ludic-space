@@ -1,5 +1,7 @@
-@mixin btn ($color) {
+button{
     min-height: 40px;
+    width: fit-content;
+    min-width: 120px;
     color: white;
     border-radius: 5px;
     outline: none;
@@ -8,6 +10,17 @@
     margin: 2px;
     font-weight: bold;
     padding: 0px 15px 0px 15px;
+    background-color: darkgray;
+
+    &:hover{
+        filter: brightness(.9);
+    }
+}
+
+
+
+
+@mixin btn ($color) {
 
     @if $color == strong{
         background-color: var(--ls-btn-strong);
@@ -27,3 +40,15 @@
 .btn-lite{ @include btn(lite); }
 
 .btn-weak{ @include btn(weak); }
+
+
+
+// button {
+//     width: 130px;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+// .btn-lite {
+//     margin-top: 20px;
+// }

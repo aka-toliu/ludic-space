@@ -1,4 +1,4 @@
-<div class="cadastro__svg">cadstro__svg
+<div class="cadastro__svg">
 
     <picture class="avatar" skin-color="s2" age="10-15" pose="floating">
 
@@ -49,7 +49,7 @@
                         </i>
                     </i>
 
-                    
+
 
                     <i class="avatar__leg-R">
                         <i class="avatar__tibia-R">
@@ -68,4 +68,193 @@
 
 </div>
 
-<div class="cadastro__form">cadstro__form</div>
+<div class="cadastro__form">
+    <header>
+        <img src="../../assets/LS-Logo - Color.svg" alt="">
+    </header>
+
+    <div class="cadastro__sections">
+
+        <section class="show-block">
+            <h2>Sobre você</h2>
+
+            <form action="">
+                <div class="form__nome">
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" id="">
+                </div>
+
+                <div class="form__sobrenome">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" name="sobrenome" id="form__lastname">
+                </div>
+
+                <div class="form__apelido">
+                    <label for="apelido">Apelido:</label>
+                    <input type="text" name="apelido" id="">
+                </div>
+
+                
+                <div class="form__nivel-acesso">
+                    <label for="nivel-acesso">Nível de acesso:</label>
+                    <select name="nivel-acesso">
+                        <option value="professor" >Sou professor</option>
+                        <option value="aluno" selected>Sou aluno</option>
+                      </select>
+                </div>
+
+                <div class="form__nascimento">
+                    <label for="nascimento">Nascimento:</label>
+                    <input type="date" name="nascimento" id="">
+                </div>
+
+                <div class="form__genero">
+                    <label for="genero">Gênero:</label>
+                    <select class="genero__select" name="genero">
+                        <option selected disabled hidden> - - - </option>
+                        <option value="non">Outro</option>
+                        <option value="feminino" >Masculino</option>
+                        <option value="masculino">Feminino</option>
+                      </select>
+                </div>
+
+
+                <div class="form__estado">
+                    <label for="estado">Estado:</label>
+                    <select name="estado">
+                        <option selected disabled hidden> - - - </option>
+                        <option value="SP">São Paulo</option>
+                        <option value="MG" >Minas Gerais</option>
+                        <option value="BA">Bahia</option>
+                      </select>
+                </div>
+
+
+            </form>
+        </section>
+        
+        <section>
+            <h2>Customize seu avatar</h2>
+            <div class="custom">
+                <div class="custom-categories">
+                    <div class="custom-category custom-category--active" onclick="changeTabCustom(this, 0)">
+                        <span></span>
+                        <p>Rosto</p>
+                    </div>
+                    <div class="custom-category" onclick="changeTabCustom(this, 1)">
+                        <span></span>
+                        <p>Cabelo</p>
+                    </div>
+                    <div class="custom-category" onclick="changeTabCustom(this, 2)">
+                        <span></span>
+                        <p>Olhos</p>
+                    </div>
+                    <div class="custom-category" onclick="changeTabCustom(this, 3)">
+                        <span></span>
+                        <p>Nariz</p>
+                    </div>
+                    <div class="custom-category" onclick="changeTabCustom(this, 4)">
+                        <span></span>
+                        <p>Boca</p>
+                    </div>
+                    <div class="custom-category" onclick="changeTabCustom(this, 5)">
+                        <span></span>
+                        <p>Acessório</p>
+                    </div>
+                </div>
+                <div class="custom-itens">
+
+                    <div class="custom-row custom-face show-flex">
+                        <div id="s1" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="s2" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
+                        <div id="s3" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="s4" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="s5" class="custom-item" onclick="changeItemCustom(this)"></div>
+                    </div>
+
+                    <div class="custom-row custom-hair">
+
+                        <div id="H0" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
+                        <div id="H1" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="H2" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="H3" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="H4" class="custom-item" onclick="changeItemCustom(this)"></div>
+
+
+                        <div class="custom-colors">
+                            <div id="c1" class="custom-colors-item custom-colors--selected" onclick="changeColorCustom(this)"></div>
+                            <div id="c2" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c3" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c4" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c5" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c6" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c7" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                        </div>
+                    </div>
+
+                    <div class="custom-row custom-eyes">
+
+                        <div id="E0" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E1"  class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
+                        <div id="E2"  class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E3"  class="custom-item" onclick="changeItemCustom(this)"></div>
+
+                        <div class="custom-colors">
+                            <div id="c1" class="custom-colors-item " onclick="changeColorCustom(this)"></div>
+                            <div id="c2"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c3"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c4"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c5"  class="custom-colors-item custom-colors--selected" onclick="changeColorCustom(this)"></div>
+                        </div>
+                    </div>
+
+                    <div class="custom-row custom-nose">
+
+                        <div id="N0" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
+                        <div id="N1" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="N2" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="N3" class="custom-item" onclick="changeItemCustom(this)"></div>
+
+                    </div>
+
+                    <div class="custom-row custom-mouth">
+
+                        <div id="M0" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
+                        <div id="M1" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="M2" class="custom-item" onclick="changeItemCustom(this)"></div>
+
+                    </div>
+
+                    <div class="custom-row custom-acessories">
+
+                        <div class="custom-item A1 custom-item--selected"></div>
+                        <div class="custom-item A2"></div>
+                        <div class="custom-item A3"></div>
+                        <div class="custom-item A4"></div>
+                        <div class="custom-item A5"></div>
+                        <div class="custom-item A6"></div>
+
+
+                        <div class="custom-colors">
+                            <div id="c1" class="custom-colors-item"></div>
+                            <div id="c2" class="custom-colors-item"></div>
+                            <div id="c3" class="custom-colors-item "></div>
+                            <div id="c4" class="custom-colors-item"></div>
+                            <div id="c5" class="custom-colors-item"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section>
+            <h2>Credenciais de acesso</h2>
+        </section>
+    </div>
+
+    <footer>
+        <button class="btn-weak" onclick="prevStep(this)">Voltar</button>
+        <button class="btn-lite" onclick="nextStep(this)">Próximo</button>
+    </footer>
+</div>
