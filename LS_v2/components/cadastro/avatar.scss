@@ -608,7 +608,6 @@
                 box-shadow: var(--H7) 1vw 0.3vw 0 0, var(--H7) -1vw 0.3vw  0 0, var(--H7) -1.9vw 1vw 0 0, var(--H7) 1.9vw 0.8vw 0 0, var(--H7) 2.5vw 1.4vw 0 0, var(--H7) -2.5vw 1.7vw 0 0, var(--H7) -2.7vw 2.4vw 0 -0.2vw, var(--H7) 2.7vw 2.2vw 0 -0.2vw;
             }
         }
-
         .avatar__hair[hair-style="H5"] {
 
             &::before{
@@ -626,7 +625,7 @@
                 z-index: 1;
                 clip-path: polygon(0 76%, 3% 76%, 4% 57%, 13% 57%, 25% 55%, 39% 49%, 48% 42%, 55% 35%, 60% 41%, 67% 46%, 76% 49%, 90% 49%, 94% 52%, 96% 73%, 100% 72%, 100% 0%, 0% 0%);
         }
-    }
+        }
 
     }
     // ------------- Hair back styles -------------------
@@ -1439,4 +1438,94 @@
 
 }
 
+}
+
+
+
+
+.avatar[pose="cardInfo"]{
+
+    // transform: scale(2.5) translateY(100%);
+
+    @keyframes cardAnim {
+        0%{
+            clip-path: inset(-6% 0 0 0);
+            transform: scale(2.5) translateY(40%);
+            background-color: #35fbb900;
+            background-image: linear-gradient(360deg, #62cafb00 50%, #88fff900 50%);
+            background-size: 0px 0px;
+        }
+
+        25%{
+            clip-path: inset(0% 27% 55% 27%);
+            transform: scale(2.5) translateY(40%);
+            background-color: #35fbb910;
+            background-image: linear-gradient(360deg, #62cafb1e 50%, #88fff923 50%);
+            filter: saturate(1);
+            background-size: 5px 5px;
+        }
+
+        50%{
+            background-size: 5px 5px;
+        }
+
+        100%{
+            
+            transform: scale(1) translateY(-5%);
+            clip-path: inset(0% 27% 69% 27%);
+            background-color: #35fbb92a;
+            background-image: linear-gradient(360deg, #62cafb80 50%, #88fff96b 50%);
+            background-size: 10px 10px;
+            filter: saturate(0.4);
+            box-shadow: inset #07ffb054 0px 66px 35px 0px;
+        }
+        
+    }
+
+
+    
+    filter: saturate(0.5) opacity(0.8);
+    animation: cardAnim 3s both !important;
+    transition: all;
+    background-size: 10px 10px;
+
+
+
+    .avatar__head{
+        opacity: 0.7;
+    }
+
+    .avatar__body{
+        opacity: 0.7;
+    }
+
+    .avatar__helmet{
+        clip-path: ellipse(50% 0% at 50% 99%);
+    }
+
+    .avatar__arm{
+
+        &-R{
+            transform: rotate(52deg);
+        }
+
+        &-L{
+            transform: rotate(-52deg);
+        }
+    }
+
+    .avatar__forearm{
+
+        &-R{
+            transform: rotate(0deg);
+        }
+
+        &-L{
+            transform: rotate(0deg);
+        }
+    }
+}
+
+.avatar-floating{
+    animation: avatarFloating 10s alternate infinite!important;
 }

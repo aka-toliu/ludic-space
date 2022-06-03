@@ -68,6 +68,13 @@ function nextStep(btn) {
         // avatar.classList.add('anim-custom-face');
     }
 
+    if (step === 2) {
+
+        let card = cadastro.querySelector('.cadastro__card-info');
+        avatar.setAttribute("pose", "cardInfo");
+        card.classList.add('show-flex');
+    }
+
     if (step < sections.length) {
 
         sections[step].classList.add('show-block');
@@ -97,6 +104,15 @@ function prevStep(btn) {
             avatar.setAttribute("pose", "floating");
         }, 2000);
     }
+
+
+    if (step === 3) {
+
+        let card = cadastro.querySelector('.cadastro__card-info');
+        // avatar.classList.remove('avatar-card-anim');
+        card.classList.remove('show-flex');
+    }
+
 
     if (step > 1) {
 
