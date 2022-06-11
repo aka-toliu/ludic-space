@@ -180,12 +180,25 @@
     }
 }
 
+.back-to-login{
+    left: -70%;
+    animation: loginBack 3s ease-in-out both;
+    animation-delay: 4s;
+
+    .login__svg-smoke{
+        opacity: 0;
+        animation: fadeIn 1s both;
+        animation-delay: 3s;
+    }
+
+    .login__svg-ship{
+        animation: shipZoomOut 4s ease-in-out both;
+    }
+
+}
+
 .login-out{
     animation: loginOut 4s ease-in-out both;
-
-    @media (max-width: 767px) {
-        animation: loginOutMobile 4s ease-in-out both;
-    }
 }
 
 @keyframes loginOut{
@@ -193,7 +206,30 @@
     100%{left: -100%;}
 }
 
-@keyframes loginOutMobile{
+@media (max-width: 767px) {
+@keyframes loginOut{
     0%{top: 0%;}
     100%{top: -100%;}
+}
+}
+
+
+
+@keyframes loginBack{
+    0%{left: -70%;}
+    100%{left: 0%;}
+}
+
+
+@keyframes shipZoomOut{
+    0%{
+        transform: scale(50);
+        right: 92%;
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        right: 0%;
+        opacity: 1;
+    }
 }

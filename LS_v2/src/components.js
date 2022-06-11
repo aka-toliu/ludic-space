@@ -73,7 +73,42 @@ function nextStep(btn) {
         let card = cadastro.querySelector('.cadastro__card-info');
         avatar.setAttribute("pose", "cardInfo");
         card.classList.add('show-flex');
+
+        btn.setAttribute('btn-style', 'complete');
+        btn.textContent = "Concluir";
     }
+
+    if (step === 3 && btn.classList.contains('complete')) {
+        let cadastroSVG = cadastro.querySelector('.cadastro__svg');
+        let ship = login.querySelector('.login__svg-ship');
+        let imgShip = ship.querySelector('img');
+
+        login.classList.add('back-to-login');
+        login.classList.remove('login-out');
+        cadastro.classList.add('cadastro-fade-out');
+        cadastroSVG.classList.add('card-complete');
+        imgShip.setAttribute('src', '../../assets/ship2.svg');
+
+        setTimeout(() => {
+            imgShip.setAttribute('src', '../../assets/ship.svg');
+        }, 4000);
+
+        setTimeout(() => {
+            cadastro.classList.remove('cadastro-fade-out');
+            cadastro.classList.remove('cadastro-in');
+            login.classList.remove('back-to-login');
+
+            $.get('components/cadastro/cadastro.html', function (response) {
+            $('.cadastro').html(response);
+            });
+
+            step = 1;
+
+        }, 8000);
+
+       
+    }
+    
 
     if (step < sections.length) {
 
@@ -81,7 +116,11 @@ function nextStep(btn) {
         sections[step -1].classList.remove('show-block');
 
         step += 1;
+
+        btn.classList.add('complete');
     }
+
+
 
    
 
@@ -89,10 +128,10 @@ function nextStep(btn) {
 }
 
 function prevStep(btn) {
-    var avatar = document.querySelector('.avatar');
-    var head = document.querySelector('.avatar__head');
-    var cadastroSections = cadastro.querySelector('.cadastro__sections');
-    var sections = cadastroSections.querySelectorAll('section');
+    let avatar = document.querySelector('.avatar');
+    let head = document.querySelector('.avatar__head');
+    let cadastroSections = cadastro.querySelector('.cadastro__sections');
+    let sections = cadastroSections.querySelectorAll('section');
 
 
     
@@ -107,10 +146,23 @@ function prevStep(btn) {
 
 
     if (step === 3) {
-
+        let avatar = document.querySelector('.avatar');
         let card = cadastro.querySelector('.cadastro__card-info');
         // avatar.classList.remove('avatar-card-anim');
-        card.classList.remove('show-flex');
+        card.classList.add('card-out');
+        avatar.setAttribute("pose", "cardInfoBack");
+
+        var btnNext = btn.parentNode.querySelector('.complete');
+
+        btnNext.setAttribute('btn-style', 'lite');
+        btnNext.textContent = "Próximo";
+
+
+        setTimeout(() => {
+            card.classList.remove('card-out');
+            card.classList.remove('show-flex');
+        }, 3000);
+
     }
 
 

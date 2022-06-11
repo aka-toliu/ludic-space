@@ -5,9 +5,15 @@
     }
     100%{
         opacity: 0;
-        visibility: hidden;
+     
     }
 
+}
+
+
+
+.fade-out{
+    animation: fadeOut 3s both!important;
 }
 
 

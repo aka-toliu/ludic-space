@@ -15,40 +15,43 @@ button{
     &:hover{
         filter: brightness(.9);
     }
+
+    &[btn-style="weak"]{ background-color: var(--ls-btn-weak);}
+
+    &[btn-style="lite"]{ background-color: var(--ls-btn-lite);}
+
+    &[btn-style="strong"]{ background-color: var(--ls-btn-strong);}
+
+    &[btn-style="complete"]{ background-color: var(--ls-btn-complete);}
+
 }
 
 
 
 
-@mixin btn ($color) {
+// @mixin btn ($color) {
 
-    @if $color == strong{
-        background-color: var(--ls-btn-strong);
-    }
+//     @if $color == strong{
+//         background-color: var(--ls-btn-strong);
+//     }
 
-    @if $color == lite{
-        background-color: var(--ls-btn-lite);
-    }
+//     @if $color == lite{
+//         background-color: var(--ls-btn-lite);
+//     }
 
-    @if $color == weak{
-        background-color: var(--ls-btn-weak);
-    }
-}
+//     @if $color == weak{
+//         background-color: var(--ls-btn-weak);
+//     }
 
-.btn-strong{ @include btn(strong); }
-
-.btn-lite{ @include btn(lite); }
-
-.btn-weak{ @include btn(weak); }
-
-
-
-// button {
-//     width: 130px;
-//     margin-left: auto;
-//     margin-right: auto;
+//     @if $color == complete{
+//         background-color: var(--ls-btn-complete);
+//     }
 // }
 
-// .btn-lite {
-//     margin-top: 20px;
-// }
+// .btn-strong{ @include btn(strong); }
+
+// .btn-lite{ @include btn(lite); }
+
+// .btn-weak{ @include btn(weak); }
+
+// .btn-weak{ @include btn(complete); }

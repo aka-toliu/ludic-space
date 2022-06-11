@@ -1,7 +1,17 @@
 <div class="cadastro__svg">
 
     <div class="cadastro__card-info">
-        <i></i><i></i>
+        
+        <i></i><i></i><span><b></b><b></b><b></b></span>
+        <img src="../../assets/icons/lock-solid.svg" alt="">
+
+        <div class="card-info">
+            <p class="card-info__title">Cartão de acesso</p>
+            <p class="card-info__name">Aluno, 24</p>
+            <p class="card-info__city">São Paulo - BR</p>
+            <p class="card-info__status">Validando dados...</p>
+        </div>
+        
     </div>
 
     <picture class="avatar" skin-color="s2" age="10-15" pose="floating">
@@ -116,7 +126,7 @@
                     <label for="genero">Gênero:</label>
                     <select class="genero__select" name="genero">
                         <option selected disabled hidden> - - - </option>
-                        <option value="non">Outro</option>
+                        <option value="non">Prefiro não dizer</option>
                         <option value="feminino" >Masculino</option>
                         <option value="masculino">Feminino</option>
                       </select>
@@ -260,17 +270,17 @@
 
                 <div class="form__email">
                     <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="">
+                    <input placeholder="exemple@email.com" type="email" name="email" id="">
                 </div>
 
                 <div class="form__password">
                     <label for="password">Senha:</label>
-                    <input type="password" name="password" id="">
+                    <input  placeholder="********" type="password" name="password" id="">
                 </div>
 
                 <div class="form__password">
                     <label for="password">Repetir senha:</label>
-                    <input type="password" name="password" id="">
+                    <input placeholder="********" type="password" name="password" id="">
                 </div>
 
             </form>
@@ -278,7 +288,7 @@
     </div>
 
     <footer>
-        <button class="btn-weak" onclick="prevStep(this)">Voltar</button>
-        <button class="btn-lite" onclick="nextStep(this)">Próximo</button>
+        <button onclick="prevStep(this)">Voltar</button>
+        <button btn-style="lite" onclick="nextStep(this)">Próximo</button>
     </footer>
 </div>
