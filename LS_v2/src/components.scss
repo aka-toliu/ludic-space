@@ -95,6 +95,7 @@ button{
     --ls-bg-strong: #732E82;
     --ls-bg-lite: #865192;
     --ls-bg-weak: #C4C4C4;
+    --ls-bg-grey: #999999;
 
 // -------- [BUTTONS] ------------------------
     --ls-btn-strong: #732E82;
@@ -2468,12 +2469,12 @@ html{
     }
 }
 
-.card-out{
-    animation: cardOut 3s both!important;
+.card-out {
+    animation: cardOut 3s both !important;
 }
 
-.card-complete{
-    animation: cardComplete 4s both!important;
+.card-complete {
+    animation: cardComplete 4s both !important;
 }
 
 @keyframes cardComplete {
@@ -2486,7 +2487,6 @@ html{
         opacity: 0;
     }
 }
-
 
 @keyframes cardOut {
     0% {
@@ -2512,10 +2512,10 @@ html{
     }
 }
 
-.cadastro-fade-out{
-    animation: fadeOut 1s both!important;
-    left: 0%!important;
-    animation-delay: 3s!important;
+.cadastro-fade-out {
+    animation: fadeOut 1s both !important;
+    left: 0% !important;
+    animation-delay: 3s !important;
 }
 
 .cadastro-in {
@@ -2600,6 +2600,7 @@ html{
         justify-content: center;
         flex-direction: column;
         cursor: pointer;
+        user-select: none;
 
         @media (max-width: 767px) {
             min-width: 25%;
@@ -2608,9 +2609,15 @@ html{
         }
 
         span {
-            width: 20px;
-            height: 20px;
-            background-color: white;
+            width: 40%;
+            height: 40%;
+            // background-color: white;
+            margin-bottom: -5%;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
 
         p {
@@ -2653,12 +2660,17 @@ html{
     }
 
     &-item {
-        width: 100px;
-        height: 100px;
+        width: 8vw;
+        height: 8vw;
         border-radius: 100px;
-        background-color: var(--ls-btn-weak);
+        background-color: var(--ls-bg-grey);
         margin: 10px;
         cursor: pointer;
+
+        @media (max-width: 767px) {
+            width: 30vw;
+            height: 30vw;
+        }
 
         &--selected {
             border: 4px solid var(--ls-btn-lite);
@@ -2695,7 +2707,109 @@ html{
         }
     }
 
+    &-face {
+        @mixin face($cor) {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                width: 60%;
+                height: 60%;
+                border-radius: 80px 80px 60px 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                // border: 1px solid red;
+                background-color: $cor;
+
+                &::after {
+                    content: "";
+                    width: 130%;
+                    height: 25%;
+                    // border: 1px solid red;
+                    border-radius: 80px;
+                    position: absolute;
+                    background-color: $cor;
+                }
+            }
+        }
+
+        #s1 {
+            @include face(var(--s1));
+        }
+
+        #s2 {
+            @include face(var(--s2));
+        }
+
+        #s3 {
+            @include face(var(--s3));
+        }
+
+        #s4 {
+            @include face(var(--s4));
+        }
+
+        #s5 {
+            @include face(var(--s5));
+        }
+    }
+
     &-hair {
+        @mixin hair() {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                content: '';
+                width: 75%;
+                height: auto;
+                position: absolute;
+            }
+        }
+        #H0{
+            @include hair();
+        }
+
+        #H1{
+            @include hair();
+
+        }
+
+        #H2 {
+            @include hair();
+           img{
+            width: 110%!important;
+           }
+            }
+        
+        #H3{
+            @include hair();
+
+        }
+
+        #H4{
+            @include hair();
+            
+        }
+
+        #H5{
+            @include hair();
+            
+        }
+
+
+            
+
+        
+
+        // --------------------------------------
+
         .custom-colors-item {
             &:nth-child(1) {
                 background-color: var(--H1);
@@ -2722,6 +2836,49 @@ html{
     }
 
     &-eyes {
+
+        @mixin eyes{
+            position: relative;
+            
+            &::after{
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 85px;
+            }
+        }
+
+        #E0{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E0.svg);
+            }
+        }
+
+        #E1{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E1.svg);
+            }
+        }
+
+        #E2{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E2.svg);
+            }
+        }
+        #E3{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E3.svg);
+            }
+        }
+
+        
         .custom-colors-item {
             &:nth-child(1) {
                 background-color: var(--O1);
@@ -2739,6 +2896,87 @@ html{
                 background-color: var(--O5);
             }
         }
+    }
+
+    &-nose{
+        
+        @mixin nose{
+            position: relative;
+            
+            &::after{
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 85px;
+            }
+        }
+
+        #N0{
+            @include nose;
+            &::after{
+                background-image: url(../../assets/icons/N0.svg);
+            }
+        }
+
+        #N1{
+            @include nose;
+            &::after{
+                background-image: url(../../assets/icons/N1.svg);
+            }
+        }
+
+        #N2{
+            @include nose;
+            &::after{
+                background-image: url(../../assets/icons/N2.svg);
+            }
+        }
+
+        
+    }
+
+    
+    &-mouth{
+        
+        @mixin mouth{
+            position: relative;
+            
+            &::after{
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 85px;
+            }
+        }
+
+        #M0{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M0.svg);
+            }
+        }
+
+        #M1{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M1.svg);
+            }
+        }
+
+        #M2{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M2.svg);
+            }
+        }
+
+        
     }
 }
 

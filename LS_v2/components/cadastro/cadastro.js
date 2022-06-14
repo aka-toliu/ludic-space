@@ -30,21 +30,48 @@ function openCadastro() {
         let cabeloFrente = cabecaFrente.querySelector('.avatar__hair')
         let cabeloTras= cabecaTras.querySelector('.avatar__hair')
 
-        console.log('mudou');
+        
+
+        let hair = cadastro.querySelector('.custom-hair');
+
+
+        let customItens = hair.querySelectorAll('.custom-item');
+        
         
         if (generoSelect.value === 'non') {
             cabeloFrente.setAttribute('hair-style', "H3");
             cabeloTras.setAttribute('hair-style', "H3");
+
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
+
+            hair.querySelector('#H0').classList.add('custom-item--selected');
+
         }
 
         if (generoSelect.value === 'feminino') {
             cabeloFrente.setAttribute('hair-style', "H1");
             cabeloTras.setAttribute('hair-style', "H1");
+
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
+
+            hair.querySelector('#H1').classList.add('custom-item--selected');
+
         }
 
         if (generoSelect.value === 'masculino') {
             cabeloFrente.setAttribute('hair-style', "H2");
             cabeloTras.setAttribute('hair-style', "H2");
+
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
+
+            hair.querySelector('#H2').classList.add('custom-item--selected');
+
         }
      });
 }
@@ -63,9 +90,6 @@ function nextStep(btn) {
     if (step === 1) {
         avatar.setAttribute("pose", "faceCustom");
         head.setAttribute("silhuette", "false");
-
-
-        // avatar.classList.add('anim-custom-face');
     }
 
     if (step === 2) {
