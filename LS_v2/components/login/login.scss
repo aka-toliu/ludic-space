@@ -195,6 +195,11 @@
         animation: shipZoomOut 4s ease-in-out both;
     }
 
+    @media (#{$mobile}) {
+        left: 0%;
+        bottom: -70%;
+    }
+
 }
 
 .login-out{
@@ -218,6 +223,19 @@
 @keyframes loginBack{
     0%{left: -70%;}
     100%{left: 0%;}
+}
+
+@media (#{$mobile}){
+    @keyframes loginBack{
+        0%{
+            left: 0%;
+            bottom: -100%;
+        }
+        100%{
+            left: 0%;
+            bottom: 0%;
+        }
+    }
 }
 
 

@@ -198,6 +198,7 @@
         @media (max-width: 767px) {
             width: 75vw;
             height: 45vw;
+            font-size: 0.9em;
         }
 
         &::after {
@@ -263,6 +264,13 @@
             position: absolute;
             bottom: 8%;
             filter: contrast(0) brightness(2);
+
+            
+            @media (#{$mobile}) {
+                width: 6%;
+                right: 9%;
+                bottom: auto;
+            }
         }
 
         span {
@@ -571,7 +579,11 @@
     animation: fadeOut 1s both !important;
     left: 0% !important;
     animation-delay: 3s !important;
+
+
 }
+
+
 
 .cadastro-in {
     animation: cadastroIn 4s ease-in-out both;
