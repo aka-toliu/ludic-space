@@ -1,3 +1,93 @@
+
+    function verifyAcess() {
+        let cardInfo = cadastro.querySelector('.cadastro__card-info');
+        let email = cadastro.querySelector('#acesso__email');
+        let password = cadastro.querySelector('#acesso__password');
+        let passwordConfirm = cadastro.querySelector('#acesso__password-confirm');
+        let locksEl = cardInfo.querySelectorAll('b');
+
+
+        var mailformat =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if(email.value.match(mailformat) && email.value !== ''){
+            locksEl[2].classList.add('locks-light');
+            email.classList.add('input-valid');
+            email.classList.remove('input-invalid');
+        }else{
+            locksEl[2].classList.remove('locks-light');
+            email.classList.remove('input-valid');
+            email.classList.add('input-invalid');
+        }
+
+        if(password.value.length > 5  && password.value !== ''){
+            locksEl[1].classList.add('locks-light');
+            password.classList.add('input-valid');
+        }else{
+            locksEl[1].classList.remove('locks-light');
+            password.classList.remove('input-valid');
+        }
+
+        if(password.value === passwordConfirm.value && passwordConfirm.value !== ''){
+            locksEl[0].classList.add('locks-light');
+            passwordConfirm.classList.add('input-valid');
+        }else{
+            locksEl[0].classList.remove('locks-light');
+            passwordConfirm.classList.remove('input-valid');
+        }
+
+
+
+        if(email.value.match(mailformat) && password.value.length > 5 && password.value === passwordConfirm.value && passwordConfirm.value !== ''){
+            cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/unlock-solid.svg');
+            console.log("unlock!");
+        }else{
+            cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/lock-solid.svg');
+        }
+
+    }
+
+
+function cartaoAcesso() {
+    
+    let email = cadastro.querySelector('.acesso__email');
+    let password = cadastro.querySelector('.acesso__password');
+    let confirmPassword = cadastro.querySelector('.acesso__password-confirm');
+    let cable = cadastro.querySelector('.card-cable');
+    let cardInfo = cadastro.querySelector('.cadastro__card-info');
+    
+
+
+    email.addEventListener("keyup", createElementsCable);
+    password.addEventListener("keyup", createElementsCable);
+    confirmPassword.addEventListener("keyup", createElementsCable);
+
+
+
+    function createElementsCable() {
+
+        let element = document.createElement('span');
+
+        cable.appendChild(element);
+
+        setTimeout(() => {
+            element.remove();
+        }, 1000);
+
+        
+
+
+        verifyAcess();
+        
+    }
+    
+
+
+
+}
+
+
+
+
 function openCadastro() {
 
     event.preventDefault();
@@ -95,11 +185,15 @@ function nextStep(btn) {
     if (step === 2) {
 
         let card = cadastro.querySelector('.cadastro__card-info');
+        let cardCable = cadastro.querySelector('.card-cable');
         avatar.setAttribute("pose", "cardInfo");
         card.classList.add('show-flex');
+        cardCable.classList.add('show-flex');
 
         btn.setAttribute('btn-style', 'complete');
         btn.textContent = "Concluir";
+
+        cartaoAcesso();
     }
 
     if (step === 3 && btn.classList.contains('complete')) {
@@ -172,9 +266,11 @@ function prevStep(btn) {
     if (step === 3) {
         let avatar = document.querySelector('.avatar');
         let card = cadastro.querySelector('.cadastro__card-info');
+        let cardCable = cadastro.querySelector('.card-cable');
         // avatar.classList.remove('avatar-card-anim');
         card.classList.add('card-out');
         avatar.setAttribute("pose", "cardInfoBack");
+        cardCable.classList.remove('show-flex');
 
         var btnNext = btn.parentNode.querySelector('.complete');
 

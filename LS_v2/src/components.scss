@@ -103,6 +103,7 @@ button{
     --ls-btn-lite: #D6559A;
     --ls-btn-complete: #6EBD90;
     --ls-btn-weak: #C4C4C4;
+    --ls-red: #cf4343;
 
 
 // --------- [AVATAR] -------
@@ -205,6 +206,8 @@ input{
     border: 2px solid var(--ls-btn-weak);
     margin-bottom: 10px;
     border-radius: 5px;
+
+    outline: none;
 }
 
 select{
@@ -2450,6 +2453,83 @@ html{
     }
 }
 
+.card-cable{
+    width: 1%;
+    height: 100%;
+    background: rgb(144, 227, 252);
+    position: absolute;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: cableIn 2s both;
+    animation-delay: 2.5s;
+
+    &::after{
+        content: '';
+        width: 300%;
+        height: 3%;
+        position: absolute;
+        top: 0%;
+        background: rgb(144, 227, 252);
+        box-shadow: #898989 0px -1.1vw 0px -0.3vw;
+    }
+
+    span{
+        width: 2vw;
+        height: 2vw;
+        border-radius: 100px;
+        background: rgb(144, 227, 252);
+        position: absolute;
+        animation: elementCable 0.8s both;
+        
+    }
+}
+
+.locks-light{
+    &::before{
+        background-color: aquamarine!important;
+    }
+    &::after{
+        background-color: aquamarine!important;
+    }
+}
+
+@keyframes cableIn{
+    0%{top: 102%;}
+    100%{top: 58.5%;}
+}
+
+@keyframes elementCable{
+    0%{top: 100%;}
+    60%{
+        top: -1%;
+        box-shadow: aquamarine 0px 0 0px 0px;
+    }
+    80%{
+        top: -1%;
+        box-shadow: aquamarine 0px 0 70px 10px;
+    }
+    100%{
+        top: -1%;
+        box-shadow: aquamarine 0px 0 100px 0px;
+    }
+    
+
+
+}
+
+
+.input-valid{
+    border: 2px solid var(--ls-btn-complete);
+}
+
+.input-invalid{
+    border: 2px solid var(--ls-red);
+}
+
+
+
 @keyframes cardIn {
     0% {
         transform: translateY(100%) scale(2.5) rotate(45deg);
@@ -2521,8 +2601,6 @@ html{
     animation: fadeOut 1s both !important;
     left: 0% !important;
     animation-delay: 3s !important;
-
-
 }
 
 
