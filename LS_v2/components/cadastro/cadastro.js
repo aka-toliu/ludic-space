@@ -35,13 +35,18 @@
             passwordConfirm.classList.remove('input-valid');
         }
 
-
+        let lock = cardInfo.querySelector('.card-info__lock');
 
         if(email.value.match(mailformat) && password.value.length > 5 && password.value === passwordConfirm.value && passwordConfirm.value !== ''){
+            
             cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/unlock-solid.svg');
-            console.log("unlock!");
+            lock.classList.add('unlock__img-anim');
+            cardInfo.querySelector('img').classList.add('unlock__img');
+
         }else{
             cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/lock-solid.svg');
+            lock.classList.remove('unlock__img-anim');
+            cardInfo.querySelector('img').classList.remove('unlock__img');
         }
 
     }
@@ -200,7 +205,26 @@ function nextStep(btn) {
         let cadastroSVG = cadastro.querySelector('.cadastro__svg');
         let ship = login.querySelector('.login__svg-ship');
         let imgShip = ship.querySelector('img');
+        let cable = cadastro.querySelector('.card-cable');
+        let finishedMsg1 = login.querySelector('.cadastro__finished-1');
+        let finishedMsg2 = login.querySelector('.cadastro__finished-2');
 
+
+        cable.classList.add('cable-out');
+        sections[2].classList.remove('show-block');
+        finishedMsg1.classList.add('show-flex');
+
+        setTimeout(() => {
+            finishedMsg1.classList.remove('show-flex');
+            finishedMsg2.classList.add('show-flex');
+
+            setTimeout(() => {
+                finishedMsg2.classList.remove('show-flex');
+            }, 2500);
+        }, 4500);
+
+
+        setTimeout(() => {
         login.classList.add('back-to-login');
         login.classList.remove('login-out');
         cadastro.classList.add('cadastro-fade-out');
@@ -223,6 +247,8 @@ function nextStep(btn) {
             step = 1;
 
         }, 8000);
+        }, 1000);
+        
 
        
     }
@@ -299,14 +325,6 @@ function prevStep(btn) {
 
     console.log(step);
 }
-
-
-
-
-
-
-
-
 
 function changeTabCustom(obj, num) {
 

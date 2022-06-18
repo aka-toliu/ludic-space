@@ -91,11 +91,16 @@ button{
  
 :root{
 
+    --ls-yellow: #facf1a;
+    --ls-green: #6EBD90;
+
+
 // -------- [BACKGROUNDS] ------------------------    
     --ls-bg-strong: #732E82;
     --ls-bg-lite: #865192;
     --ls-bg-weak: #C4C4C4;
     --ls-bg-grey: #999999;
+    
 
 // -------- [BUTTONS] ------------------------
     --ls-btn-strong: #732E82;
@@ -2208,7 +2213,8 @@ html{
             height: auto;
             position: absolute;
             bottom: 8%;
-            filter: contrast(0) brightness(2);
+            filter:  brightness(0) opacity(0.4);
+            
 
             
             @media (#{$mobile}) {
@@ -2428,6 +2434,41 @@ html{
         }
     }
 
+    .unlock__img{
+        filter:  contrast(0) brightness(2);
+    }
+
+    .unlock__img-anim{
+        &::before{
+            content: '';
+            width: 12%;
+            height: 68%;
+            position: absolute;
+            background-image: url(../../assets/icons/unlock-solid.svg);
+            filter: contrast(0) brightness(2);
+            background-repeat: no-repeat;
+            transform: scale(1);
+            animation: unlockIMG 0.6s ease-in both;
+            
+        }
+    }
+
+    @keyframes unlockIMG {
+        0%{
+            transform: scale(1);
+            opacity: 0;
+        }
+        90%{
+            transform: scale(10);
+            opacity: 0.4;
+        }
+
+        100%{
+            transform: scale(12);
+            opacity: 0;
+        }
+    }
+
     .card-info {
         margin-top: 46%;
         color: aquamarine;
@@ -2498,6 +2539,15 @@ html{
 @keyframes cableIn{
     0%{top: 102%;}
     100%{top: 58.5%;}
+}
+
+@keyframes cableOut{
+    0%{top: 58.5%;}
+    100%{top: 102%;}
+}
+
+.cable-out{
+    animation: cableOut 1s both!important;
 }
 
 @keyframes elementCable{
@@ -3067,6 +3117,70 @@ html{
     }
 }
 
+
+
+.cadastro__finished{
+    position: fixed;
+    z-index: 5;
+    right: 25%;
+    display: flex;
+    align-self: center;
+
+    section{
+        &:nth-child(1){
+            color: var(--ls-bg-strong);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            display: none;
+
+            img{
+                width: 5vw;
+            }
+        }
+
+        &:nth-child(2){
+            
+            color: white;
+            display: none;
+            animation: msgWelcome 3.1s both;
+
+            span{
+                color: #d89be5;
+            }
+        }
+    }
+    
+}
+
+@keyframes msgWelcome {
+
+    0%{
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+    }
+
+    20%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+
+    60%{
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+
+    90%{
+        opacity: 1;
+        clip-path: inset(0 0 0 110%);
+    }
+
+    100%{
+        opacity: 0;
+        clip-path: inset(0 0 0 100%);
+    }
+    
+}
  
 .login{
     background-color: var(--ls-bg-strong);
@@ -3074,6 +3188,7 @@ html{
     height: 100%;
     position: absolute;
     overflow: hidden;
+    display: flex;
 
     &__form{
 

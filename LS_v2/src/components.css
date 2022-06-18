@@ -36,6 +36,8 @@ button {
     background-color: var(--ls-btn-complete); }
 
 :root {
+  --ls-yellow: #facf1a;
+  --ls-green: #6EBD90;
   --ls-bg-strong: #732E82;
   --ls-bg-lite: #865192;
   --ls-bg-weak: #C4C4C4;
@@ -1386,7 +1388,7 @@ html {
       height: auto;
       position: absolute;
       bottom: 8%;
-      filter: contrast(0) brightness(2); }
+      filter: brightness(0) opacity(0.4); }
       @media (max-width: 767px) {
         .cadastro__card-info img {
           width: 6%;
@@ -1570,6 +1572,28 @@ html {
       bottom: 0;
       background-color: aquamarine;
       clip-path: polygon(23% 100%, 35% 93%, 67% 92%, 96% 77%, 96% 35%, 91% 32%, 91% 22%, 96% 18%, 96% 0, 100% 0, 100% 100%); }
+  .cadastro .unlock__img {
+    filter: contrast(0) brightness(2); }
+  .cadastro .unlock__img-anim::before {
+    content: '';
+    width: 12%;
+    height: 68%;
+    position: absolute;
+    background-image: url(../../assets/icons/unlock-solid.svg);
+    filter: contrast(0) brightness(2);
+    background-repeat: no-repeat;
+    transform: scale(1);
+    animation: unlockIMG 0.6s ease-in both; }
+@keyframes unlockIMG {
+  0% {
+    transform: scale(1);
+    opacity: 0; }
+  90% {
+    transform: scale(10);
+    opacity: 0.4; }
+  100% {
+    transform: scale(12);
+    opacity: 0; } }
   .cadastro .card-info {
     margin-top: 46%;
     color: aquamarine;
@@ -1625,6 +1649,14 @@ html {
     top: 102%; }
   100% {
     top: 58.5%; } }
+@keyframes cableOut {
+  0% {
+    top: 58.5%; }
+  100% {
+    top: 102%; } }
+.cable-out {
+  animation: cableOut 1s both !important; }
+
 @keyframes elementCable {
   0% {
     top: 100%; }
@@ -2135,12 +2167,50 @@ html {
     .custom-mouth #M2::after {
       background-image: url(../../assets/icons/M2.svg); }
 
+.cadastro__finished {
+  position: fixed;
+  z-index: 5;
+  right: 25%;
+  display: flex;
+  align-self: center; }
+  .cadastro__finished section:nth-child(1) {
+    color: var(--ls-bg-strong);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: none; }
+    .cadastro__finished section:nth-child(1) img {
+      width: 5vw; }
+  .cadastro__finished section:nth-child(2) {
+    color: white;
+    display: none;
+    animation: msgWelcome 3.1s both; }
+    .cadastro__finished section:nth-child(2) span {
+      color: #d89be5; }
+
+@keyframes msgWelcome {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 0 0); }
+  20% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); }
+  60% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); }
+  90% {
+    opacity: 1;
+    clip-path: inset(0 0 0 110%); }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%); } }
 .login {
   background-color: var(--ls-bg-strong);
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow: hidden; }
+  overflow: hidden;
+  display: flex; }
   .login__form {
     background-color: white;
     height: 100%;
