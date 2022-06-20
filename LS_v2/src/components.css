@@ -1498,7 +1498,8 @@ html {
       border-top: 1px solid rgba(131, 131, 131, 0.459);
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      background-color: white; }
       @media (max-width: 767px) {
         .cadastro__form footer {
           height: 20%; } }
