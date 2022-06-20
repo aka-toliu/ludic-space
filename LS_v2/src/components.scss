@@ -3578,6 +3578,11 @@ html{
     }
 
     &__svg-smoke{
+
+       img{
+        width: 100%;
+       }
+
         @media (#{$mobile}) {
             display: flex;
             justify-content: center;
@@ -3662,11 +3667,18 @@ html{
                 justify-content: center;
                 align-items: center;
                 margin-bottom: 5%;
+                transition: opacity 0.4s;
+                opacity: 1;
 
                 img {
                     height: 90%;
                     margin-left: auto;
                     margin-right: auto;
+
+                    @media (max-height: 520px) {
+                        opacity: 0;
+                        transition: opacity 0.4s;
+                    }
                     
                 }
             }

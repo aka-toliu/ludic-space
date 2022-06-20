@@ -2517,6 +2517,8 @@ html {
   @media (max-width: 767px) {
     .login {
       justify-content: center; } }
+  .login__svg-smoke img {
+    width: 100%; }
   @media (max-width: 767px) {
     .login__svg-smoke {
       display: flex;
@@ -2581,11 +2583,17 @@ html {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 5%; }
+        margin-bottom: 5%;
+        transition: opacity 0.4s;
+        opacity: 1; }
         .login__form form header img {
           height: 90%;
           margin-left: auto;
           margin-right: auto; }
+          @media (max-height: 520px) {
+            .login__form form header img {
+              opacity: 0;
+              transition: opacity 0.4s; } }
   .login__svg {
     height: 100%;
     width: 70%;
