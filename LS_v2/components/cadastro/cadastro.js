@@ -27,6 +27,8 @@ function validateStep() {
 
      form.addEventListener("change", function () {
 
+        
+
         let anoNascimento = nascimento.value.split('-', 3);
         let anoNascimentoNumber = anoNascimento[0];
         let idade = actualYear - anoNascimentoNumber;
@@ -39,6 +41,15 @@ function validateStep() {
         if (nome.value !== "" && sobrenome.value !== "" && nascimento.value !== "" && estado.value !== "") {
             btnNext.setAttribute('btn-style', "lite");
             btnNext.classList.add('btn--active');
+
+            alunos[0].nome = nome.value;
+            alunos[0].sobrenome = sobrenome.value;
+            alunos[0].nascimento = nascimento.value;
+            alunos[0].estado = estado.value;
+            alunos[0].genero = generoSelect.value;
+            alunos[0].apelido = apelido.value;
+
+
         }else{
             btnNext.setAttribute('btn-style', "");
             btnNext.classList.remove('btn--active');
@@ -47,6 +58,14 @@ function validateStep() {
      });
 
      form.addEventListener("keyup", function () {
+        let generoSelect = cadastro.querySelector('.genero__select');
+        let nome = cadastro.querySelector('#form__nome');
+        let nascimento = cadastro.querySelector('#form__nascimento');
+        let sobrenome = cadastro.querySelector('#form__sobrenome');
+        let apelido = cadastro.querySelector('#form__apelido');
+        let refCall = cadastro.querySelector('#form__reference');
+        let estado = cadastro.querySelector('#form__estado');
+        // let acesso = cadastro.querySelector('#form__acesso');
 
         let anoNascimento = nascimento.value.split('-', 3);
         let anoNascimentoNumber = anoNascimento[0];
@@ -59,6 +78,8 @@ function validateStep() {
         if (nome.value !== "" && sobrenome.value !== "" && nascimento.value !== "" && estado.value !== "") {
             btnNext.setAttribute('btn-style', "lite");
             btnNext.classList.add('btn--active');
+            // alunos[0].acesso = acesso.value;
+
         }else{
             btnNext.setAttribute('btn-style', "");
             btnNext.classList.remove('btn--active');
@@ -153,7 +174,7 @@ function verifyAcess() {
         locksEl[2].classList.add('locks-light');
         email.classList.add('input-valid');
         email.classList.remove('input-invalid');
-        alunos[0].email = email.value;
+       
     } else {
         locksEl[2].classList.remove('locks-light');
         email.classList.remove('input-valid');
@@ -163,6 +184,7 @@ function verifyAcess() {
     if (password.value.length > 5 && password.value !== '') {
         locksEl[1].classList.add('locks-light');
         password.classList.add('input-valid');
+        
     } else {
         locksEl[1].classList.remove('locks-light');
         password.classList.remove('input-valid');
@@ -185,6 +207,9 @@ function verifyAcess() {
         cardInfo.querySelector('img').classList.add('unlock__img');
         btnNext.setAttribute('btn-style', 'complete');
         btnNext.classList.add('complete');
+        
+        alunos[0].email = email.value;
+        alunos[0].senha = password.value;
     } else {
         cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/lock-solid.svg');
         lock.classList.remove('unlock__img-anim');
@@ -277,6 +302,8 @@ function nextStep(btn) {
     
         avatar.setAttribute("pose", "faceCustom");
         head.setAttribute("silhuette", "false");
+
+        
     }
 
     if (step === 2) {
@@ -472,7 +499,8 @@ function changeItemCustom(obj) {
 
         if (customRow.classList.contains('custom-face')) {
 
-            avatar.setAttribute('skin-color', obj.id)
+            avatar.setAttribute('skin', obj.id);
+            alunos[0].avatar.pele = obj.id;
 
         }
 
@@ -486,6 +514,8 @@ function changeItemCustom(obj) {
 
             avatarHairFront.setAttribute('hair-style', obj.id);
             avatarHairBack.setAttribute('hair-style', obj.id);
+
+            alunos[0].avatar.cabelo.estilo = obj.id;
         }
 
         if (customRow.classList.contains('custom-eyes')) {
@@ -493,6 +523,7 @@ function changeItemCustom(obj) {
             let avatarEyes = avatar.querySelector('.avatar__eyes');
 
             avatarEyes.setAttribute('eyes-style', obj.id);
+            alunos[0].avatar.olhos.estilo = obj.id;
 
         }
 
@@ -500,6 +531,7 @@ function changeItemCustom(obj) {
 
             let avatarNose = avatar.querySelector('.avatar__nose');
             avatarNose.setAttribute('nose-style', obj.id);
+            alunos[0].avatar.nariz = obj.id;
 
         }
 
@@ -507,6 +539,7 @@ function changeItemCustom(obj) {
 
             let avatarMouth = avatar.querySelector('.avatar__mouth');
             avatarMouth.setAttribute('mouth-style', obj.id);
+            alunos[0].avatar.boca = obj.id;
 
         }
 
@@ -542,12 +575,14 @@ function changeColorCustom(obj) {
         if (customRow.classList.contains('custom-eyes')) {
 
             avatarEyes.setAttribute('eyes-color', obj.id)
+            alunos[0].avatar.olhos.cor = obj.id;
         }
 
         if (customRow.classList.contains('custom-hair')) {
 
             avatarHairFront.setAttribute('hair-color', obj.id)
             avatarHairBack.setAttribute('hair-color', obj.id)
+            alunos[0].avatar.cabelo.cor = obj.id;
         }
 
 

@@ -211,7 +211,7 @@
 }
 
 // -------------- Skin Colors ----------------------
-.avatar[skin-color="s1"] {
+.avatar[skin="s1"] {
     .avatar__head-front {
         background-color: var(--s1);
         &::after {
@@ -227,7 +227,7 @@
     }
 }
 
-.avatar[skin-color="s1"] {
+.avatar[skin="s1"] {
     .avatar__head-front {
         background-color: var(--s1);
         &::after {
@@ -243,7 +243,7 @@
     }
 }
 
-.avatar[skin-color="s2"] {
+.avatar[skin="s2"] {
     .avatar__head-front {
         background-color: var(--s2);
         &::after {
@@ -259,7 +259,7 @@
     }
 }
 
-.avatar[skin-color="s3"] {
+.avatar[skin="s3"] {
     .avatar__head-front {
         background-color: var(--s3);
         &::after {
@@ -275,7 +275,7 @@
     }
 }
 
-.avatar[skin-color="s4"] {
+.avatar[skin="s4"] {
     .avatar__head-front {
         background-color: var(--s4);
         &::after {
@@ -291,7 +291,7 @@
     }
 }
 
-.avatar[skin-color="s5"] {
+.avatar[skin="s5"] {
     .avatar__head-front {
         background-color: var(--s5);
         &::after {

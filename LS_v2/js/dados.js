@@ -23,7 +23,7 @@ var alunos = [
                 estilo: "H0",
                 cor: "c1"
             },
-            olho: {
+            olhos: {
                 estilo: "E1",
                 cor: "c1"
             },

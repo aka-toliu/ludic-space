@@ -1027,6 +1027,10 @@
 
         #H6{
             @include hair();
+
+            img{
+                margin-top: 30%;
+            }
             
         }
 
@@ -1104,6 +1108,24 @@
             @include eyes;
             &::after{
                 background-image: url(../../assets/icons/E3.svg);
+            }
+        }
+        #E4{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E4.svg);
+            }
+        }
+        #E5{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E5.svg);
+            }
+        }
+        #E6{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E6.svg);
             }
         }
 
@@ -1204,7 +1226,18 @@
                 background-image: url(../../assets/icons/M2.svg);
             }
         }
-
+        #M3{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M3.svg);
+            }
+        }
+        #M4{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M4.svg);
+            }
+        }
         
     }
 }

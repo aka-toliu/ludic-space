@@ -455,7 +455,7 @@ html{
 }
 
 // -------------- Skin Colors ----------------------
-.avatar[skin-color="s1"] {
+.avatar[skin="s1"] {
     .avatar__head-front {
         background-color: var(--s1);
         &::after {
@@ -471,7 +471,7 @@ html{
     }
 }
 
-.avatar[skin-color="s1"] {
+.avatar[skin="s1"] {
     .avatar__head-front {
         background-color: var(--s1);
         &::after {
@@ -487,7 +487,7 @@ html{
     }
 }
 
-.avatar[skin-color="s2"] {
+.avatar[skin="s2"] {
     .avatar__head-front {
         background-color: var(--s2);
         &::after {
@@ -503,7 +503,7 @@ html{
     }
 }
 
-.avatar[skin-color="s3"] {
+.avatar[skin="s3"] {
     .avatar__head-front {
         background-color: var(--s3);
         &::after {
@@ -519,7 +519,7 @@ html{
     }
 }
 
-.avatar[skin-color="s4"] {
+.avatar[skin="s4"] {
     .avatar__head-front {
         background-color: var(--s4);
         &::after {
@@ -535,7 +535,7 @@ html{
     }
 }
 
-.avatar[skin-color="s5"] {
+.avatar[skin="s5"] {
     .avatar__head-front {
         background-color: var(--s5);
         &::after {
@@ -3201,6 +3201,10 @@ html{
 
         #H6{
             @include hair();
+
+            img{
+                margin-top: 30%;
+            }
             
         }
 
@@ -3278,6 +3282,24 @@ html{
             @include eyes;
             &::after{
                 background-image: url(../../assets/icons/E3.svg);
+            }
+        }
+        #E4{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E4.svg);
+            }
+        }
+        #E5{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E5.svg);
+            }
+        }
+        #E6{
+            @include eyes;
+            &::after{
+                background-image: url(../../assets/icons/E6.svg);
             }
         }
 
@@ -3378,7 +3400,18 @@ html{
                 background-image: url(../../assets/icons/M2.svg);
             }
         }
-
+        #M3{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M3.svg);
+            }
+        }
+        #M4{
+            @include mouth;
+            &::after{
+                background-image: url(../../assets/icons/M4.svg);
+            }
+        }
         
     }
 }
@@ -3495,6 +3528,8 @@ html{
     display: none;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
 
     table{
         text-align: left;
@@ -3505,6 +3540,10 @@ html{
         display: flex;
         flex-direction: column;
 
+        @media (#{$mobile}) {
+            width: 80%;
+        }
+
         caption{
             font-size: 1.5em;
             font-weight: 700;
@@ -3513,9 +3552,14 @@ html{
         th{
             color: var(--ls-bg-strong);
         }
+        
 
         tr{
 
+        }
+
+        td{
+            width: 30%;
         }
     }
 }
