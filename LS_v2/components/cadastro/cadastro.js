@@ -1,65 +1,208 @@
 
-    function verifyAcess() {
-        let cardInfo = cadastro.querySelector('.cadastro__card-info');
-        let email = cadastro.querySelector('#acesso__email');
-        let password = cadastro.querySelector('#acesso__password');
-        let passwordConfirm = cadastro.querySelector('#acesso__password-confirm');
-        let locksEl = cardInfo.querySelectorAll('b');
+function validateStep() {
 
+    let actualYear = new Date().getFullYear();
 
-        var mailformat =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var btnNext = cadastro.querySelector('.form__btn-next');
+    var cadastroSections = cadastro.querySelector('.cadastro__sections');
+    var sections = cadastroSections.querySelectorAll('section');
+    var form = sections[0].querySelector('form');
 
-        if(email.value.match(mailformat) && email.value !== ''){
-            locksEl[2].classList.add('locks-light');
-            email.classList.add('input-valid');
-            email.classList.remove('input-invalid');
+    let cardInfoName = cadastro.querySelector('.card-info__name');
+    let cardInfoCity = cadastro.querySelector('.card-info__city');
+
+    let msgError = cadastro.querySelector('.form__msg-error');
+
+    let generoSelect = cadastro.querySelector('.genero__select');
+    let nome = cadastro.querySelector('#form__nome');
+    let nascimento = cadastro.querySelector('#form__nascimento');
+    let sobrenome = cadastro.querySelector('#form__sobrenome');
+    let apelido = cadastro.querySelector('#form__apelido');
+    let refCall = cadastro.querySelector('#form__reference');
+    let estado = cadastro.querySelector('#form__estado');
+
+    
+
+    
+
+     form.addEventListener("change", function () {
+
+        let anoNascimento = nascimento.value.split('-', 3);
+        let anoNascimentoNumber = anoNascimento[0];
+        let idade = actualYear - anoNascimentoNumber;
+
+        cardInfoName.textContent = nome.value + ", " + idade;
+        cardInfoCity.textContent = estado.value + " - BR";
+
+        
+       
+        if (nome.value !== "" && sobrenome.value !== "" && nascimento.value !== "" && estado.value !== "") {
+            btnNext.setAttribute('btn-style', "lite");
+            btnNext.classList.add('btn--active');
         }else{
-            locksEl[2].classList.remove('locks-light');
-            email.classList.remove('input-valid');
-            email.classList.add('input-invalid');
+            btnNext.setAttribute('btn-style', "");
+            btnNext.classList.remove('btn--active');
+        }
+        
+     });
+
+     form.addEventListener("keyup", function () {
+
+        let anoNascimento = nascimento.value.split('-', 3);
+        let anoNascimentoNumber = anoNascimento[0];
+        let idade = actualYear - anoNascimentoNumber;
+
+        cardInfoName.textContent = nome.value + ", " + idade;
+        cardInfoCity.textContent = estado.textContent + " - BR";
+
+       
+        if (nome.value !== "" && sobrenome.value !== "" && nascimento.value !== "" && estado.value !== "") {
+            btnNext.setAttribute('btn-style', "lite");
+            btnNext.classList.add('btn--active');
+        }else{
+            btnNext.setAttribute('btn-style', "");
+            btnNext.classList.remove('btn--active');
         }
 
-        if(password.value.length > 5  && password.value !== ''){
-            locksEl[1].classList.add('locks-light');
-            password.classList.add('input-valid');
+        if(apelido.value !== ""){
+            refCall.removeAttribute("disabled");
+            refCall.previousElementSibling.style.color = "black";
         }else{
-            locksEl[1].classList.remove('locks-light');
-            password.classList.remove('input-valid');
+            refCall.disabled = true;
+            refCall.previousElementSibling.style.color = "";
+        }
+        
+     });
+    
+    
+    
+
+
+    generoSelect.addEventListener("change", function () {
+
+        let cabecaFrente = cadastro.querySelector('.avatar__head-front');
+        let cabecaTras = cadastro.querySelector('.avatar__head-back');
+
+        let cabeloFrente = cabecaFrente.querySelector('.avatar__hair')
+        let cabeloTras = cabecaTras.querySelector('.avatar__hair');
+        let cadastroWelcome = login.querySelector('.cadastro__finished-welcome');
+
+
+
+        let hair = cadastro.querySelector('.custom-hair');
+
+
+        let customItens = hair.querySelectorAll('.custom-item');
+
+
+        if (generoSelect.value === 'non') {
+            cabeloFrente.setAttribute('hair-style', "H3");
+            cabeloTras.setAttribute('hair-style', "H3");
+
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
+
+            hair.querySelector('#H0').classList.add('custom-item--selected');
+            cadastroWelcome.textContent = "Bem-vinde";
+
         }
 
-        if(password.value === passwordConfirm.value && passwordConfirm.value !== ''){
-            locksEl[0].classList.add('locks-light');
-            passwordConfirm.classList.add('input-valid');
-        }else{
-            locksEl[0].classList.remove('locks-light');
-            passwordConfirm.classList.remove('input-valid');
+        if (generoSelect.value === 'feminino') {
+            cabeloFrente.setAttribute('hair-style', "H2");
+            cabeloTras.setAttribute('hair-style', "H2");
+
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
+
+            hair.querySelector('#H2').classList.add('custom-item--selected');
+            cadastroWelcome.textContent = "Bem-vinda";
         }
 
-        let lock = cardInfo.querySelector('.card-info__lock');
+        if (generoSelect.value === 'masculino') {
+            cabeloFrente.setAttribute('hair-style', "H1");
+            cabeloTras.setAttribute('hair-style', "H1");
 
-        if(email.value.match(mailformat) && password.value.length > 5 && password.value === passwordConfirm.value && passwordConfirm.value !== ''){
-            
-            cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/unlock-solid.svg');
-            lock.classList.add('unlock__img-anim');
-            cardInfo.querySelector('img').classList.add('unlock__img');
+            for (let i = 0; i < customItens.length; i++) {
+                customItens[i].classList.remove('custom-item--selected')
+            }
 
-        }else{
-            cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/lock-solid.svg');
-            lock.classList.remove('unlock__img-anim');
-            cardInfo.querySelector('img').classList.remove('unlock__img');
+            hair.querySelector('#H1').classList.add('custom-item--selected');
+            cadastroWelcome.textContent = "Bem-vindo";
+
         }
+    });
 
+
+
+}
+
+function verifyAcess() {
+    let cardInfo = cadastro.querySelector('.cadastro__card-info');
+    let email = cadastro.querySelector('#acesso__email');
+    let password = cadastro.querySelector('#acesso__password');
+    let passwordConfirm = cadastro.querySelector('#acesso__password-confirm');
+    let locksEl = cardInfo.querySelectorAll('b');
+    var btnNext = cadastro.querySelector('.form__btn-next');
+
+
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (email.value.match(mailformat) && email.value !== '') {
+        locksEl[2].classList.add('locks-light');
+        email.classList.add('input-valid');
+        email.classList.remove('input-invalid');
+    } else {
+        locksEl[2].classList.remove('locks-light');
+        email.classList.remove('input-valid');
+        email.classList.add('input-invalid');
     }
+
+    if (password.value.length > 5 && password.value !== '') {
+        locksEl[1].classList.add('locks-light');
+        password.classList.add('input-valid');
+    } else {
+        locksEl[1].classList.remove('locks-light');
+        password.classList.remove('input-valid');
+    }
+
+    if (password.value === passwordConfirm.value && passwordConfirm.value !== '') {
+        locksEl[0].classList.add('locks-light');
+        passwordConfirm.classList.add('input-valid');
+    } else {
+        locksEl[0].classList.remove('locks-light');
+        passwordConfirm.classList.remove('input-valid');
+    }
+
+    let lock = cardInfo.querySelector('.card-info__lock');
+
+    if (email.value.match(mailformat) && password.value.length > 5 && password.value === passwordConfirm.value && passwordConfirm.value !== '') {
+
+        cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/unlock-solid.svg');
+        lock.classList.add('unlock__img-anim');
+        cardInfo.querySelector('img').classList.add('unlock__img');
+        btnNext.setAttribute('btn-style', 'complete');
+        btnNext.classList.add('complete');
+    } else {
+        cardInfo.querySelector('img').setAttribute('src', '../../assets/icons/lock-solid.svg');
+        lock.classList.remove('unlock__img-anim');
+        cardInfo.querySelector('img').classList.remove('unlock__img');
+        btnNext.setAttribute('btn-style', '');
+        btnNext.classList.remove('complete');
+    }
+
+}
 
 
 function cartaoAcesso() {
-    
+
     let email = cadastro.querySelector('.acesso__email');
     let password = cadastro.querySelector('.acesso__password');
     let confirmPassword = cadastro.querySelector('.acesso__password-confirm');
     let cable = cadastro.querySelector('.card-cable');
     let cardInfo = cadastro.querySelector('.cadastro__card-info');
-    
+
 
 
     email.addEventListener("keyup", createElementsCable);
@@ -78,13 +221,13 @@ function cartaoAcesso() {
             element.remove();
         }, 1000);
 
-        
+
 
 
         verifyAcess();
-        
+
     }
-    
+
 
 
 
@@ -100,11 +243,12 @@ function openCadastro() {
     // $.get('components/cadastro/cadastro.html', function (response) {
     // $('.cadastro').html(response);
     // });
-    
+
     login.classList.add('login-out');
     cadastro.classList.add('cadastro-in');
+    validateStep();
 
-    
+
 
     setTimeout(() => {
         var avatar = document.querySelector('.avatar');
@@ -113,62 +257,8 @@ function openCadastro() {
     }, 6000);
 
 
+
     
-    let generoSelect = cadastro.querySelector('.genero__select');
-   
-
-    generoSelect.addEventListener("change", function(){ 
-
-        let cabecaFrente = cadastro.querySelector('.avatar__head-front');
-        let cabecaTras= cadastro.querySelector('.avatar__head-back');
-
-        let cabeloFrente = cabecaFrente.querySelector('.avatar__hair')
-        let cabeloTras= cabecaTras.querySelector('.avatar__hair')
-
-        
-
-        let hair = cadastro.querySelector('.custom-hair');
-
-
-        let customItens = hair.querySelectorAll('.custom-item');
-        
-        
-        if (generoSelect.value === 'non') {
-            cabeloFrente.setAttribute('hair-style', "H3");
-            cabeloTras.setAttribute('hair-style', "H3");
-
-            for (let i = 0; i < customItens.length; i++) {
-                customItens[i].classList.remove('custom-item--selected')
-            }
-
-            hair.querySelector('#H0').classList.add('custom-item--selected');
-
-        }
-
-        if (generoSelect.value === 'feminino') {
-            cabeloFrente.setAttribute('hair-style', "H1");
-            cabeloTras.setAttribute('hair-style', "H1");
-
-            for (let i = 0; i < customItens.length; i++) {
-                customItens[i].classList.remove('custom-item--selected')
-            }
-
-            hair.querySelector('#H1').classList.add('custom-item--selected');
-
-        }
-
-        if (generoSelect.value === 'masculino') {
-            cabeloFrente.setAttribute('hair-style', "H2");
-            cabeloTras.setAttribute('hair-style', "H2");
-
-            for (let i = 0; i < customItens.length; i++) {
-                customItens[i].classList.remove('custom-item--selected')
-            }
-
-            hair.querySelector('#H2').classList.add('custom-item--selected');
-
-        }
-     });
 }
 
 let step = 1;
@@ -181,8 +271,9 @@ function nextStep(btn) {
     var sections = cadastroSections.querySelectorAll('section');
 
 
+
+    if (step === 1 && btn.classList.contains('btn--active')) {
     
-    if (step === 1) {
         avatar.setAttribute("pose", "faceCustom");
         head.setAttribute("silhuette", "false");
     }
@@ -195,8 +286,9 @@ function nextStep(btn) {
         card.classList.add('show-flex');
         cardCable.classList.add('show-flex');
 
-        btn.setAttribute('btn-style', 'complete');
-        btn.textContent = "Concluir";
+        btn.setAttribute('btn-style', '');        
+        btn.textContent = "Finalizar";
+
 
         cartaoAcesso();
     }
@@ -208,6 +300,7 @@ function nextStep(btn) {
         let cable = cadastro.querySelector('.card-cable');
         let finishedMsg1 = login.querySelector('.cadastro__finished-1');
         let finishedMsg2 = login.querySelector('.cadastro__finished-2');
+        
 
 
         cable.classList.add('cable-out');
@@ -225,48 +318,60 @@ function nextStep(btn) {
 
 
         setTimeout(() => {
-        login.classList.add('back-to-login');
-        login.classList.remove('login-out');
-        cadastro.classList.add('cadastro-fade-out');
-        cadastroSVG.classList.add('card-complete');
-        imgShip.setAttribute('src', '../../assets/ship2.svg');
+            login.classList.add('back-to-login');
+            login.classList.remove('login-out');
+            cadastro.classList.add('cadastro-fade-out');
+            cadastroSVG.classList.add('card-complete');
+            imgShip.setAttribute('src', '../../assets/ship2.svg');
 
-        setTimeout(() => {
-            imgShip.setAttribute('src', '../../assets/ship.svg');
-        }, 4000);
+            setTimeout(() => {
+                imgShip.setAttribute('src', '../../assets/ship.svg');
+            }, 4000);
 
-        setTimeout(() => {
-            cadastro.classList.remove('cadastro-fade-out');
-            cadastro.classList.remove('cadastro-in');
-            login.classList.remove('back-to-login');
+            setTimeout(() => {
+                cadastro.classList.remove('cadastro-fade-out');
+                cadastro.classList.remove('cadastro-in');
+                login.classList.remove('back-to-login');
 
-            $.get('components/cadastro/cadastro.html', function (response) {
-            $('.cadastro').html(response);
-            });
+                $.get('components/cadastro/cadastro.html', function (response) {
+                    $('.cadastro').html(response);
+                });
 
-            step = 1;
+                step = 1;
 
-        }, 8000);
+            }, 8000);
         }, 1000);
-        
 
-       
+
+
     }
-    
+
+
 
     if (step < sections.length) {
+        let msgError = cadastro.querySelector('.form__msg-error');
 
-        sections[step].classList.add('show-block');
-        sections[step -1].classList.remove('show-block');
+        if(btn.classList.contains('btn--active')){
 
-        step += 1;
+            sections[step].classList.add('show-block');
+            sections[step - 1].classList.remove('show-block');
+    
+            step += 1;
 
-        btn.classList.add('complete');
+            // btn.classList.add('complete');
+            msgError.textContent = ""
+        }else{
+            
+
+            msgError.textContent = "Ops, falta preencher alguns dados obrigatórios."
+        }
+
+        
     }
 
 
 
-   
+
 
     console.log(step);
 }
@@ -278,7 +383,7 @@ function prevStep(btn) {
     let sections = cadastroSections.querySelectorAll('section');
 
 
-    
+
     if (step === 2) {
         avatar.setAttribute("pose", "faceCustomBack");
         head.setAttribute("silhuette", "true");
@@ -298,7 +403,7 @@ function prevStep(btn) {
         avatar.setAttribute("pose", "cardInfoBack");
         cardCable.classList.remove('show-flex');
 
-        var btnNext = btn.parentNode.querySelector('.complete');
+        var btnNext = btn.parentNode.querySelector('.form__btn-next');
 
         btnNext.setAttribute('btn-style', 'lite');
         btnNext.textContent = "Próximo";
@@ -316,12 +421,12 @@ function prevStep(btn) {
 
         sections[step - 2].classList.add('show-block');
         sections[step - 1].classList.remove('show-block');
-        
+
 
         step -= 1;
     }
 
-    
+
 
     console.log(step);
 }
@@ -332,8 +437,8 @@ function changeTabCustom(obj, num) {
     let customCategories = cadastro.querySelectorAll('.custom-category');
 
     if (!obj.classList.contains('show-flex')) {
-        
-        
+
+
 
         for (let i = 0; i < customRows.length; i++) {
             customRows[i].classList.remove('show-flex');
@@ -353,11 +458,11 @@ function changeItemCustom(obj) {
 
 
     if (!obj.classList.contains('custom-item--selected')) {
-        
-        
+
+
 
         for (let i = 0; i < customitens.length; i++) {
-            
+
             customitens[i].classList.remove('custom-item--selected');
         }
 
@@ -365,9 +470,9 @@ function changeItemCustom(obj) {
 
 
         if (customRow.classList.contains('custom-face')) {
-            
+
             avatar.setAttribute('skin-color', obj.id)
-  
+
         }
 
         if (customRow.classList.contains('custom-hair')) {
@@ -376,7 +481,7 @@ function changeItemCustom(obj) {
             let avatarHeadBack = avatar.querySelector('.avatar__head-back');
             let avatarHairFront = avatarHeadFront.querySelector('.avatar__hair');
             let avatarHairBack = avatarHeadBack.querySelector('.avatar__hair');
-            
+
 
             avatarHairFront.setAttribute('hair-style', obj.id);
             avatarHairBack.setAttribute('hair-style', obj.id);
@@ -422,24 +527,24 @@ function changeColorCustom(obj) {
 
 
     if (!obj.classList.contains('custom-colors--selected')) {
-        
-        
+
+
 
         for (let i = 0; i < customColors.length; i++) {
-            
+
             customColors[i].classList.remove('custom-colors--selected');
         }
 
         obj.classList.add('custom-colors--selected');
 
 
-        if(customRow.classList.contains('custom-eyes')){
-            
+        if (customRow.classList.contains('custom-eyes')) {
+
             avatarEyes.setAttribute('eyes-color', obj.id)
         }
 
-        if(customRow.classList.contains('custom-hair')){
-            
+        if (customRow.classList.contains('custom-hair')) {
+
             avatarHairFront.setAttribute('hair-color', obj.id)
             avatarHairBack.setAttribute('hair-color', obj.id)
         }

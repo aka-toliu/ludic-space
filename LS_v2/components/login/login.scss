@@ -5,6 +5,17 @@
     position: absolute;
     overflow: hidden;
     display: flex;
+    
+    @media (#{$mobile}) {
+        justify-content: center;
+    }
+
+    &__svg-smoke{
+        @media (#{$mobile}) {
+            display: flex;
+            justify-content: center;
+        }
+    }
 
     &__form{
 
@@ -190,6 +201,9 @@
         opacity: 0;
         animation: fadeIn 1s both;
         animation-delay: 3s;
+
+
+
     }
 
     .login__svg-ship{

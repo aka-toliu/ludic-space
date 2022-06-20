@@ -6,6 +6,17 @@
     left: -100%;
     overflow: hidden;
 
+    .form__msg-error{
+        color: red;
+        margin-left: 7%;
+        position: absolute;
+        bottom: -17%;
+        left: 0%;
+        font-size: 0.9em;
+    
+
+    }
+
     @media (max-width: 767px) {
         flex-direction: column;
     }
@@ -49,6 +60,13 @@
         }
     }
 
+    .obt{
+        &::after{
+            content: "*";
+            color: var(--ls-btn-lite);
+        }
+    }
+
     &__form {
         height: 100%;
         width: 70%;
@@ -74,6 +92,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
 
             img {
                 height: 80%;
@@ -146,6 +165,14 @@
                             width: 40%;
                         }
                     }
+
+                    .form__reference{
+                        label{
+                            color: var(--ls-bg-weak);
+                        }
+                    }
+
+
                 }
             }
         }
@@ -946,6 +973,14 @@
     }
 
     &-hair {
+
+        overflow: auto;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5%;
+
+
         @mixin hair() {
             position: relative;
             display: flex;
@@ -990,10 +1025,12 @@
             
         }
 
-
+        #H6{
+            @include hair();
             
+        }
 
-        
+
 
         // --------------------------------------
 
@@ -1023,6 +1060,11 @@
     }
 
     &-eyes {
+        overflow: auto;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5%;
 
         @mixin eyes{
             position: relative;
@@ -1176,6 +1218,12 @@
     display: flex;
     align-self: center;
 
+    @media (#{$mobile}) {
+        top: 50%;
+        justify-self: center;
+        right: auto;
+    }
+
     section{
         &:nth-child(1){
             color: var(--ls-bg-strong);
@@ -1202,6 +1250,7 @@
     }
     
 }
+
 
 @keyframes msgWelcome {
 
@@ -1230,4 +1279,36 @@
         clip-path: inset(0 0 0 100%);
     }
     
+}
+
+@media (#{$mobile}) {
+
+    @keyframes msgWelcome {
+
+        0%{
+            opacity: 0;
+            clip-path: inset(0 0 0 0);
+        }
+    
+        20%{
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+    
+        60%{
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+    
+        90%{
+            opacity: 1;
+            clip-path: inset(0 0 110% 0);
+        }
+    
+        100%{
+            opacity: 0;
+            clip-path: inset(0 0 100% 0);
+        }
+        
+    }
 }

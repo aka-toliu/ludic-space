@@ -1,13 +1,10 @@
-
-
-
 <div class="cadastro__svg">
 
     <div class="card-cable"></div>
 
     <div class="cadastro__card-info">
 
-    
+
         <i></i><i></i><span class="card-info__lock"><b></b><b></b><b></b></span>
         <img src="../../assets/icons/lock-solid.svg" alt="">
 
@@ -17,7 +14,7 @@
             <p class="card-info__city">São Paulo - BR</p>
             <p class="card-info__status">Validando dados...</p>
         </div>
-        
+
     </div>
 
     <picture class="avatar" skin-color="s2" age="10-15" pose="floating">
@@ -91,7 +88,10 @@
 <div class="cadastro__form">
     <header>
         <img src="../../assets/LS-Logo - Color.svg" alt="">
+        <p class="form__msg-error"></p>
     </header>
+
+    
 
     <div class="cadastro__sections">
 
@@ -100,59 +100,71 @@
 
             <form action="">
                 <div class="form__nome">
-                    <label for="name">Nome:</label>
-                    <input type="text" name="name" id="">
+                    <label class="obt" for="name">Nome:</label>
+                    <input placeholder="ex: Ariel" type="text" name="name" id="form__nome">
                 </div>
 
                 <div class="form__sobrenome">
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" name="sobrenome" id="form__lastname">
+                    <label class="obt" for="sobrenome">Sobrenome:</label>
+                    <input placeholder="ex: Oliveira Silva" type="text" name="sobrenome" id="form__sobrenome">
                 </div>
 
                 <div class="form__apelido">
                     <label for="apelido">Apelido:</label>
-                    <input type="text" name="apelido" id="">
+                    <input placeholder="ex: Ari" type="text" name="apelido" id="form__apelido">
                 </div>
 
-                
+
+                <div class="form__reference">
+                    
+                    <label for="reference">Me chame pelo:</label>
+                    <select disabled name="reference" id="form__reference">
+                        <option selected value="ref-nome">Nome</option>
+                        <option value="ref-nick" >Apelido</option>
+                    </select>
+
+                </div>
+
+
+
                 <div class="form__nivel-acesso">
                     <label for="nivel-acesso">Nível de acesso:</label>
-                    <select name="nivel-acesso">
-                        <option value="professor" >Sou professor</option>
+                    <select name="nivel-acesso" id="form__nivel-acesso">
+                        <option value="professor">Sou professor</option>
                         <option value="aluno" selected>Sou aluno</option>
-                      </select>
+                    </select>
                 </div>
 
                 <div class="form__nascimento">
-                    <label for="nascimento">Nascimento:</label>
-                    <input type="date" name="nascimento" id="">
+                    <label class="obt" for="nascimento">Nascimento:</label>
+                    <input min="1922" type="date" name="nascimento" id="form__nascimento">
                 </div>
 
                 <div class="form__genero">
                     <label for="genero">Gênero:</label>
-                    <select class="genero__select" name="genero">
-                        <option selected disabled hidden> - - - </option>
-                        <option value="non">Prefiro não dizer</option>
-                        <option value="feminino" >Masculino</option>
-                        <option value="masculino">Feminino</option>
-                      </select>
+                    <select class="genero__select" name="genero" id="form__genero">
+                        <!-- <option selected disabled hidden> - - - </option> -->
+                        <option selected value="non">Prefiro não dizer</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
                 </div>
 
 
                 <div class="form__estado">
-                    <label for="estado">Estado:</label>
-                    <select name="estado">
-                        <option selected disabled hidden> - - - </option>
-                        <option value="SP">São Paulo</option>
-                        <option value="MG" >Minas Gerais</option>
-                        <option value="BA">Bahia</option>
-                      </select>
+                    <label class="obt" for="estado">Estado:</label>
+                    <select id="form__estado" name="estado">
+                        <option value="" selected disabled hidden> - - - </option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Minas Gerais">Minas Gerais</option>
+                        <option value="Bahia">Bahia</option>
+                    </select>
                 </div>
 
 
             </form>
         </section>
-        
+
         <section>
             <h2>Customize seu avatar</h2>
             <div class="custom">
@@ -198,7 +210,8 @@
 
                     <div class="custom-row custom-face show-flex">
                         <div id="s1" class="custom-item" onclick="changeItemCustom(this)"><i></i></div>
-                        <div id="s2" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"><i></i></div>
+                        <div id="s2" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"><i></i>
+                        </div>
                         <div id="s3" class="custom-item" onclick="changeItemCustom(this)"><i></i></div>
                         <div id="s4" class="custom-item" onclick="changeItemCustom(this)"><i></i></div>
                         <div id="s5" class="custom-item" onclick="changeItemCustom(this)"><i></i></div>
@@ -219,15 +232,20 @@
                             <img src="../../assets/icons/H3.svg" alt="">
                         </div>
                         <div id="H4" class="custom-item" onclick="changeItemCustom(this)">
-                           <img src="../../assets/icons/H4.svg" alt="">
+                            <img src="../../assets/icons/H4.svg" alt="">
                         </div>
                         <div id="H5" class="custom-item" onclick="changeItemCustom(this)">
                             <img src="../../assets/icons/H5.svg" alt="">
                         </div>
+                        <div id="H6" class="custom-item" onclick="changeItemCustom(this)">
+                            <img src="../../assets/icons/H5.svg" alt="">
+                        </div>
+
 
 
                         <div class="custom-colors">
-                            <div id="c1" class="custom-colors-item custom-colors--selected" onclick="changeColorCustom(this)"></div>
+                            <div id="c1" class="custom-colors-item custom-colors--selected"
+                                onclick="changeColorCustom(this)"></div>
                             <div id="c2" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
                             <div id="c3" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
                             <div id="c4" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
@@ -240,16 +258,20 @@
                     <div class="custom-row custom-eyes">
 
                         <div id="E0" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
-                        <div id="E1"  class="custom-item" onclick="changeItemCustom(this)"></div>
-                        <div id="E2"  class="custom-item" onclick="changeItemCustom(this)"></div>
-                        <div id="E3"  class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E1" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E2" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E3" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E4" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E5" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="E6" class="custom-item" onclick="changeItemCustom(this)"></div>
 
                         <div class="custom-colors">
                             <div id="c1" class="custom-colors-item " onclick="changeColorCustom(this)"></div>
-                            <div id="c2"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
-                            <div id="c3"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
-                            <div id="c4"  class="custom-colors-item" onclick="changeColorCustom(this)"></div>
-                            <div id="c5"  class="custom-colors-item custom-colors--selected" onclick="changeColorCustom(this)"></div>
+                            <div id="c2" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c3" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c4" class="custom-colors-item" onclick="changeColorCustom(this)"></div>
+                            <div id="c5" class="custom-colors-item custom-colors--selected"
+                                onclick="changeColorCustom(this)"></div>
                         </div>
                     </div>
 
@@ -266,6 +288,8 @@
                         <div id="M0" class="custom-item custom-item--selected" onclick="changeItemCustom(this)"></div>
                         <div id="M1" class="custom-item" onclick="changeItemCustom(this)"></div>
                         <div id="M2" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="M3" class="custom-item" onclick="changeItemCustom(this)"></div>
+                        <div id="M4" class="custom-item" onclick="changeItemCustom(this)"></div>
 
                     </div>
 
@@ -288,7 +312,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </section>
 
@@ -304,12 +328,13 @@
 
                 <div class="acesso__password">
                     <label for="acesso__password">Senha:</label>
-                    <input  placeholder="********" type="password" name="acesso__password" id="acesso__password">
+                    <input placeholder="********" type="password" name="acesso__password" id="acesso__password">
                 </div>
 
                 <div class="acesso__password-confirm">
                     <label for="acesso__password">Repetir senha:</label>
-                    <input placeholder="********" type="password" name="acesso__password-confirm" id="acesso__password-confirm">
+                    <input placeholder="********" type="password" name="acesso__password-confirm"
+                        id="acesso__password-confirm">
                 </div>
 
             </form>
@@ -318,7 +343,6 @@
 
     <footer>
         <button onclick="prevStep(this)">Voltar</button>
-        <button btn-style="lite" onclick="nextStep(this)">Próximo</button>
+        <button class="form__btn-next"  onclick="nextStep(this)">Próximo</button>
     </footer>
 </div>
-
