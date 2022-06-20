@@ -529,6 +529,9 @@ html {
     border-bottom: 2px solid black;
     position: absolute;
     top: 0; }
+    @media (max-width: 767px) {
+      .avatar__mouth[mouth-style="M3"]::after {
+        border-bottom: 1px solid black; } }
   .avatar__mouth[mouth-style="M3"]::before {
     content: "";
     width: 48%;
@@ -538,6 +541,9 @@ html {
     background-color: var(--ls-red);
     bottom: 1px;
     border-radius: 0px 0px 10px 10px; }
+    @media (max-width: 767px) {
+      .avatar__mouth[mouth-style="M3"]::before {
+        bottom: 0px; } }
 
 .avatar__mouth[mouth-style="M4"] {
   bottom: 4%; }
@@ -552,6 +558,12 @@ html {
     position: absolute;
     border-radius: 0 0 20px 20px;
     top: -2px; }
+    @media (max-width: 767px) {
+      .avatar__mouth[mouth-style="M4"]::after {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        top: 0px; } }
   .avatar__mouth[mouth-style="M4"]::before {
     content: "";
     width: 31%;
@@ -561,6 +573,9 @@ html {
     background-color: white;
     top: 0px;
     border-radius: 0px; }
+    @media (max-width: 767px) {
+      .avatar__mouth[mouth-style="M4"]::before {
+        top: 1px; } }
 
 .avatar__head .avatar__head-front .avatar__hair[hair-style="H1"]::after {
   content: "";
@@ -2400,6 +2415,28 @@ html {
     100% {
       opacity: 0;
       clip-path: inset(0 0 100% 0); } } }
+.home {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center; }
+  .home table {
+    text-align: left;
+    border: 1px solid grey;
+    height: 63%;
+    width: 25%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column; }
+    .home table caption {
+      font-size: 1.5em;
+      font-weight: 700; }
+    .home table th {
+      color: var(--ls-bg-strong); }
+
 .login {
   background-color: var(--ls-bg-strong);
   width: 100%;

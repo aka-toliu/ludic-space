@@ -153,6 +153,7 @@ function verifyAcess() {
         locksEl[2].classList.add('locks-light');
         email.classList.add('input-valid');
         email.classList.remove('input-invalid');
+        alunos[0].email = email.value;
     } else {
         locksEl[2].classList.remove('locks-light');
         email.classList.remove('input-valid');

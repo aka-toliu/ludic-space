@@ -597,6 +597,11 @@
         border-bottom: 2px solid black;
         position: absolute;
         top: 0;
+
+        @media (#{$mobile}) {
+            border-bottom: 1px solid black;
+            
+        }
     }
 
     &::before {
@@ -609,6 +614,10 @@
         bottom: 1px;
         border-radius: 0px 0px 10px 10px;
         // right: 1px;
+
+        @media (#{$mobile}) {
+            bottom: 0px;
+        }
     }
 }
 
@@ -626,6 +635,13 @@
         position: absolute;
         border-radius: 0 0 20px 20px;
         top: -2px;
+
+        @media (#{$mobile}) {
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            top: 0px;
+        }
     }
 
     &::before {
@@ -637,6 +653,10 @@
         background-color: white;
         top: 0px;
         border-radius: 0px;
+
+        @media (#{$mobile}) {
+            top: 1px;
+        }
     }
 }
 

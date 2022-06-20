@@ -1,0 +1,32 @@
+.home{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    table{
+        text-align: left;
+        border: 1px solid grey;
+        height: 63%;
+        width: 25%;
+        margin: 5%;
+        display: flex;
+        flex-direction: column;
+
+        caption{
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        th{
+            color: var(--ls-bg-strong);
+        }
+
+        tr{
+
+        }
+    }
+}

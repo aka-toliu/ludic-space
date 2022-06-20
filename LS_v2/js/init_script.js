@@ -1,5 +1,6 @@
 var cadastro = document.querySelector('.cadastro');
 var login = document.querySelector('.login');
+var home = document.querySelector('.home');
 
 
 

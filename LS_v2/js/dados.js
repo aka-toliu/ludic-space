@@ -1,28 +1,34 @@
 var alunos = [
 
     {
-        nome: 'Exemple',
-        sobrenome: 'Exemple',
-        nascimento: '10/02/2000',
-        estado: 'São Paulo',
-        instituicao: 'Colégio Target',
+        id: 0,
+        email: "exemple@email.com",
+        senha: "123123",
+        nome: 'string',
+        sobrenome: 'string',
+        apelido: "string",
+        refNome: "nome",
+        acesso: "aluno",
+        nascimento: 'dd/mm/aaa',
+        estado: 'string',
+        instituicao: 'string',
         nivel: 'EF1',
         periodo: 'Matutino',
         genero: 'non',
         classe: '1ª Série',
         turma: 'A',
         avatar: {
-            pele: "P1",
+            pele: "S0",
             cabelo: {
-                estilo: "C1",
+                estilo: "H0",
                 cor: "c1"
             },
             olho: {
-                estilo: "O1",
+                estilo: "E1",
                 cor: "c1"
             },
-            nariz: "N1",
-            boca: "B1",
+            nariz: "N0",
+            boca: "M0",
             acessorio: "A0"
         }
     }
