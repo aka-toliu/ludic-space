@@ -1816,10 +1816,10 @@ html {
   0% {
     top: 102%; }
   100% {
-    top: 58.5%; } }
+    top: calc(50% + 4vw); } }
 @keyframes cableOut {
   0% {
-    top: 58.5%; }
+    top: calc(50% + 4vw); }
   100% {
     top: 102%; } }
 .cable-out {
