@@ -2646,7 +2646,7 @@ html {
           bottom: 0; } }
       .login__svg-smoke img {
         z-index: 0;
-        margin-left: -2px; }
+        margin-left: -5px; }
         @media (max-width: 767px) {
           .login__svg-smoke img {
             transform: rotate(270deg);
