@@ -543,6 +543,14 @@ function changeItemCustom(obj) {
 
         }
 
+        if (customRow.classList.contains('custom-acessories')) {
+
+            let avatarAcessories = avatar.querySelector('.avatar__acessories');
+            avatarAcessories.setAttribute('avatar-style', obj.id);
+            alunos[0].avatar.acessorio = obj.id;
+
+        }
+
     }
 }
 
